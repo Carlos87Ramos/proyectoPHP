@@ -142,9 +142,9 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
       $sql = "SELECT Id_Poducto FROM Registro  WHERE Id_Producto ={$Id}";
       $result = $this->db->query($sql);
 
-      //SI no exixte el producto  elimino el Producto
+      //SI no exixte el producto , elimino el Producto.
 
-      if ($result) {
+      if (!$result || !$this->db->affected_rows) {
         $sql = "DELETE FROM Producto WHERE Id = {$Id}";
         return $this->db->query($sql);
       }
@@ -153,13 +153,18 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
     {
         $nombre = $this->db->real_escape_string($params['Nombre']);
         $descripcion = $this->db->real_escape_string($params['Descripcion']);
+        $tipo = $this->db->real_escape_string($params['Tipo']);
        
+
+       
+          
+        
        
          
       if ($this->addImagen($params['Foto'])) {
 
         $name = $params['Foto']['name'];
-        $sql = "INSERT INTO Producto  (Nombre , Descripcion, Cantidad, Foto)VALUES('$nombre', '$descripcion' , '0', '$name')";
+        $sql = "INSERT INTO Producto  (Nombre , Descripcion, Cantidad, Foto,Tipo)VALUES('$nombre', '$descripcion' , '0', '$name','$tipo')";
         
       }
 

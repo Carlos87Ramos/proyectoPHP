@@ -2,12 +2,14 @@
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 <body>
-  
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a> </button>
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Productos</a> </button> 
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a> </button>
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button>
 
-<a  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a> 
-<a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> 
 <br>
 
 <div>

@@ -10,7 +10,13 @@
         
 </head>
 <body>
-<h1>Editar Menu</h1>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
+
+<div class="container">
+        
+<h2>Editar Menu</h2>
 
 
 
@@ -46,6 +52,8 @@
        </div>
 
     </form>
+    </div>
 </body>
 </html>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
+

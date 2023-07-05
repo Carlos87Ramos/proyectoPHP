@@ -13,8 +13,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            <th>Nombre</th>
            <th>Descripcion</th>
            <th>Cantidad</th>
-           <th>Editar</th>
-           <th>Eliminar</th>
+           <th>Alta/Baja</th>
+           
           
        </tr>
 
@@ -30,19 +30,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            
            echo '<td>' .$info_producto[$i][5].'</td>';
            
-           echo '<td> <a href="'. FOLDER_PATH.'/Cocina/listarProducto/'.$info_producto[$i][1].'"><i class="fa-solid fa-pen-to-square"></i></a> </td>';
-           echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/deleteProducto/'.$info_producto[$i][1].'"> <i class="fa-solid fa-trash-can"></i></t>';
-            echo '</tr>';
+           echo '<td> <a href="'. FOLDER_PATH.'/Registro/listarProducto/'.$info_producto[$i][1].'"><i class="fa-solid fa-plus"></i></a> </td>';
+          
        }
 
        ?>
    </table>
-   <script>
-        function eliminar(){
-            var respuesta = confirm("¿Estas seguro que quieres eliminar ?");
-            return respuesta
-        }
-    </script>
+  
     
 </body>
 </html>

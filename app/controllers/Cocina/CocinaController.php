@@ -127,8 +127,9 @@ class CocinaController extends Controller
             $info_producto [$contador][5]= $row['Cantidad'];
             $contador++;
         }
-        $params = array('$info_producto ' => $info_producto  ,'show_listarProductos'=> true,'message_type'=>$message_type,'message'=> $message);
-        $this->render(__CLASS__, $params);
+      
+        $params = array('info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
+        $this->render(__CLASS__,$params);
     }
 
     public function listarProducto($Id)

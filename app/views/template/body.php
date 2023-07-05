@@ -1,51 +1,39 @@
-*
-    {margin: 0;
-    padding: 0;
-    }
-    
-body {
-  
-  margin: 0 px;
-  padding: 0 px;
-  font-family: Impact;
-  text-align: center;
-  background: linear-gradient(to right,rgb(17, 17, 20), rgb(55, 60, 148));
-  }
+<?php
+defined ('BASEPATH') or exit ('No se permite acceso directo');?>
+
 
 
    
-  h1{
-    color: rgb(28, 6, 6);
+   
+
+
+
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://kit.fontawesome.com/0ce3f10c55.js" crossorigin="anonymous"></script>  
+    <style>
+   body {
+  margin: 0 px;
+  padding: 0 px;
+  text-align: center;
+  background: linear-gradient(to right,rgb(17, 17, 20), rgb(55, 60, 148));
   }
-
-
-
-.Border
-{
-  
-  width: 290px ;
-  margin: auto;
-  border-radius:5px;
-  border: solid 20px rgb(37, 47, 187);
-  box-shadow: 5px red 5px ;
-  background-color: rgb(96, 101, 101);
-  padding: 20px;
-  color: #f3f3f7;
-  font-size: x-large;
-  font-family: 'Times New Roman', Times, serif;
-  margin-bottom: 200px;
-}
-
-.container {
+  .container {
   width: 400px;
   margin: 100px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   font-family:'Times New Roman';
+ 
 }
 h2 {
-  text-align: center;
+   color: black; 
+   text-align: center;
+   font-size: ;
 }
 .form-group {
   margin-bottom: 15px;
@@ -74,23 +62,26 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #09200a;
 }
-boby
-{     
+button[type="submit"] {
+  background-color: white;
+  color: blue;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button[type="submit"]:hover {
+  background-color: #02250a;
+}
+a{
+    color:blue;
     
-    margin: 0 px;
-    padding: 0 px;
-    font-family: Impact;
-   
-    text-align: center;
-    background: linear-gradient(to right,rgb(17, 17, 20), rgb(55, 60, 148));
 }
- header
- {
- background-color: blue; 
-           
-      
+table{
+  color:white;
 }
-  #customers 
+#customers 
   {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -114,7 +105,5 @@ boby
   color: white;
 }
 
-h1{
-  color: rgb(246, 238, 238);
- 
-}
+    </style>
+</head>

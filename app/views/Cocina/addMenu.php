@@ -1,22 +1,12 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiSTAR MENU</title>
-    <link rel="stylesheet" href="app/views/template/css/styleLogin.css">
-    <link rel="stylesheet" href="app/views/template/css/styleHome.css">
-
-
-
-</head>
-<body>
-
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
+<div class="container">
+
+        <h2> Agregar Ménu</h2>
 
     <form method="POST" action="<?=FOLDER_PATH.'/Cocina/addMenu'?>"enctype="multipart/form-data" >
         <div class="label" >
@@ -41,6 +31,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        </div>
 
     </form>
+    </div>
 </body>
 </html>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
