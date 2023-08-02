@@ -42,6 +42,7 @@ class RegistroController extends Controller
             $info_producto [$contador][3]= $row['Descripcion'];
             $info_producto [$contador][4]= $row['Foto'];
             $info_producto [$contador][5]= $row['Cantidad'];
+            $info_producto [$contador][6]= $row['Tipo'];
             $contador++;
         }
       
@@ -62,11 +63,13 @@ class RegistroController extends Controller
 
     public function registroProducto($request_params)
     {
-  $result =  $this->model->addRegistro($request_params);
+  $result = $this->model->addRegistro($request_params);
   if ($result)
   {
-    if($request_params['Tipo']=== 'Entrada')
-    $result = $this->modelCocina->addCantidadProductos($request_params['Id']);
+    
+    $result = $this->modelCocina->addCantidadProducto($request_params);
   }
+  $this->listarProductos('Stock actualizado con exito');
+
     }
 }

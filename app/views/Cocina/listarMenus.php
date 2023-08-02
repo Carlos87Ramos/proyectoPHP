@@ -15,6 +15,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            <th>Observaciones</th>
            <th>Editar</th>
            <th>Eliminar</th>
+           <th>Agregar productos</th>
           
        </tr>
    
@@ -32,6 +33,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            
            echo '<td> <a href="'. FOLDER_PATH.'/Cocina/listarMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-pen-to-square"></i></a> </td>';
            echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/deleteMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> </td>';
+           echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/addProductosReceta/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> </td>';
            echo '</tr>';
        }
 

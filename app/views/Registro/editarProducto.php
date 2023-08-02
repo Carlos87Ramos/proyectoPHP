@@ -28,7 +28,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        
        <div class="label" >
        
-       <label for="Cantidad"> Cantidad <?= $info_producto->Tipo ==='Kg'?'en Kg': 'por unidad'?></label>
+       <label for="Cantidad">  <?= $info_producto->Tipo ==='Kg'?' Kg': 'Unidades'?></label>
        <input type="number" name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
        
        
@@ -48,7 +48,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
        <div class="boton" >
-        <input type="hidden" name="Id" value="<?= $info_producto->ID ?>">
+        <input type="hidden" name="Id" value="<?= $info_producto->ID?>">
 
        <button type="submit">Aceptar</button>
        </div>

@@ -22,8 +22,9 @@ class RegistroModel extends Model
     {
         $tipo = $this->db->real_escape_string($params['Tipo']);
         $cantidad = $this->db->real_escape_string($params['Cantidad']);
-        $fecha = $this->db->real_scape_string($params['Fecha']);
-        $sql = "INSERT INTO Registro (Tipo, Cantidad, Fecha) values ('$tipo','$cantidad','$fecha')";
+        $id= $this->db->real_escape_string($params['Id']);
+        
+        $sql = "INSERT INTO Registro (Tipo, Cantidad,Id_Producto) values ('$tipo','$cantidad','$id')";
         return $this->db->query($sql);
        
     } 

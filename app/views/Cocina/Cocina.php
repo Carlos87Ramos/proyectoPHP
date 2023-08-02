@@ -22,6 +22,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    <?php !empty($show_listarProductos)? require'app/views/Cocina/listarProductos.php' : ''?>
    <?php !empty($show_editar_producto) ? require'app/views/Cocina/editarProducto.php' : '' ?>
 
+   <?php !empty($show_listarProductosReceta)? require'app/views/Cocina/listarProductosReceta.php' : ''?>
+
 </div>
 
 

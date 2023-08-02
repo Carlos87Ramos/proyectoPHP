@@ -94,6 +94,61 @@ class CocinaController extends Controller
 
     
     }
+
+     public function addProductosReceta($Id,$message = '', $message_type= 'success')
+
+    {
+        $res = $this->model->listarProductosNotInReceta($Id);
+        $contador = 0;
+        $info_producto= [];
+
+        while ($row = $res->fetch_assoc())
+        {
+            $info_producto [$contador][1]= $row['ID'];
+            $info_producto [$contador][2]= $row['Nombre'];
+            $info_producto [$contador][3]= $row['Descripcion'];
+            $info_producto [$contador][4]= $row['Foto'];
+            $info_producto [$contador][5]= $row['Cantidad'];
+            $contador++;
+        }
+        $res = $this->model->listarProductosReceta($Id);
+        $contador = 0;
+        $info_producto_Receta= [];
+        while ($row = $res->fetch_assoc())
+        {
+            $info_producto_Receta [$contador][1]= $row['ID'];
+            $info_producto_Receta [$contador][2]= $row['Nombre'];
+            $info_producto_Receta [$contador][3]= $row['Descripcion'];
+            $info_producto_Receta [$contador][4]= $row['Foto'];
+            $info_producto_Receta [$contador][5]= $row['Cantidad'];
+            $contador++;
+        }
+
+       $result = $this->model->listarMenu($Id);
+       $info_menu = !$result->num_rows ? $info_menu= array():$info_menu = $result->fetch_object();
+      
+        $params = array('info_producto_Receta' => $info_producto_Receta,'info_producto' => $info_producto,'show_listarProductosReceta'=> true,'message_type' => $message_type,'message'=> $message,'info_menu'=>$info_menu);
+        $this->render(__CLASS__,$params);
+    }
+    public function agregarProductoReceta($request_params)
+    {
+
+     $result = $this->model->agregarProductoReceta($request_params);
+      if (!$result) 
+
+    return $this->addProductosReceta($request_params['Id'],"Hubo un error al agregar el producto",'warning');
+    $this->addProductosReceta($request_params['Id'], "Producto agregado  correctamente");
+    } 
+    public function eliminarProductoReceta($request_params)
+    {
+        $result = $this->model->eliminarProductoReceta($request_params);
+        if (!$result) {
+            return $this->addProductosReceta("Hubo un error al agregar el Producto", 'warning');
+        }
+        $this->addProductosReceta($request_params['Id'],"  Producto eliminado correctamente");
+
+    }
+  
     public function addProductoForm()
     {
             $params=array('show_addProductoForm'=> true);
@@ -163,4 +218,6 @@ class CocinaController extends Controller
     
 
     }
+
+    
 }

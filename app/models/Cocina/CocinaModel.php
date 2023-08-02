@@ -104,7 +104,22 @@ $sql = "UPDATE Menu SET Nombre='{$nombre}', Descripcion='{$descripcion}' , Obser
         $sql = "SELECT * FROM Producto";
         return $this->db->query($sql);
     }
+    public function listarProductosNotInreceta($id_menu)
 
+    {
+    $sql = "SELECT  * FROM Producto , Receta  WHERE Id Not in 
+    (SELECT id_Producto FROM Receta WHERE Id = Id_Producto and Id_Menu = $id_menu)";
+
+    return $this->db->query($sql);
+    }
+    public function listarProductosReceta($id_menu)
+
+    {
+    $sql = "SELECT p.ID,p.Nombre,p.Descripcion,p.Foto,r.Cantidad FROM Producto p , Receta r WHERE Id  In 
+    (SELECT id_Producto FROM Receta WHERE p.ID = Id_Producto and Id_Menu = $id_menu and Id_Menu = r.Id_Menu and Id_producto =r.Id_producto )";
+
+return $this->db->query($sql);
+    }
     public function listarProducto($id)
 
     {
@@ -134,6 +149,22 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
       return $this->db->query($sql);
     
     }
+    public function addProducto($params)
+    {
+        $nombre = $this->db->real_escape_string($params['Nombre']);
+        $descripcion = $this->db->real_escape_string($params['Descripcion']);
+        $tipo = $this->db->real_escape_string($params['Tipo']);
+        
+        if ($this->addImagen($params['Foto']))
+        {
+            $name = $params['Foto']['name'];
+            $sql = "INSERT INTO Producto (Nombre,Descripcion,Cantidad,Foto, Tipo) 
+                    VALUES ('$nombre', '$descripcion','0', '$name', '$tipo')";  
+        }
+        return $this->db->query($sql);
+    }       
+
+
     public function deleteProducto($Id)
     {
 
@@ -149,27 +180,39 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
         return $this->db->query($sql);
       }
     }
-    public function addProducto($params)
+    public function addCantidadProducto($params)
     {
-        $nombre = $this->db->real_escape_string($params['Nombre']);
-        $descripcion = $this->db->real_escape_string($params['Descripcion']);
-        $tipo = $this->db->real_escape_string($params['Tipo']);
-       
+        $id = $this->db->real_escape_string($params['Id']);
+        $addCantidad = $this->db->real_escape_string($params['Cantidad']);
 
-       
+        // Obtener cantidad actual de producto
+
+        $sql= "SELECT Cantidad FROM Producto WHERE ID = '{$id}'";
+        if ($params['Tipo']==='Entrada') 
+          $cantidad = $this->db->query($sql)->fetch_object()->Cantidad + $addCantidad;
+          else 
+            $cantidad = $this->db->query($sql)->fetch_object()->Cantidad - $addCantidad;
           
+            $sql = "UPDATE Producto SET Cantidad= '{$cantidad}'WHERE ID = '{$id}'";
         
+       return $this->db ->query($sql);
        
-         
-      if ($this->addImagen($params['Foto'])) {
+    }
+    public function agregarProductoReceta($params)
+    {
+      $id = $this->db->real_escape_string($params['Id']);
+      $idProducto = $this->db->real_escape_string($params['IdProducto']);
+      $cantidad = $this->db->real_escape_string($params['Cantidad']);
 
-        $name = $params['Foto']['name'];
-        $sql = "INSERT INTO Producto  (Nombre , Descripcion, Cantidad, Foto,Tipo)VALUES('$nombre', '$descripcion' , '0', '$name','$tipo')";
-        
-      }
-
+      $sql = "INSERT INTO Receta (Id_Menu,Id_Producto, Cantidad) 
+      VALUES ($id,$idProducto, $cantidad)";
       return $this->db->query($sql);
-       
-
+    }
+    public function eliminarProductoReceta($params)
+    {
+      $id = $this->db->real_escape_string($params['Id']);
+      $idProducto = $this->db->real_escape_string($params['IdProducto']);
+      $sql = "DELETE FROM Receta WHERE Id_menu = $id and  Id_Producto = $idProducto";
+      return $this->db->query($sql);
     }
 }

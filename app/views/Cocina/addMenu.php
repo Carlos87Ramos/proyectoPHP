@@ -28,8 +28,6 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        </div>
        <div class="boton" >
        <button type="submit">Agregar</button>
-       </div>
-
     </form>
     </div>
 </body>
