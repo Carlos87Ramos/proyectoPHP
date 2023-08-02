@@ -5,10 +5,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 <body>
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a> </button>
+<!--<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a> </button>
 <button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Productos</a> </button> 
 <button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a> </button>
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button>
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button> -->
 
 <br>
 
@@ -39,8 +39,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app/views/template/css/styleHome.css">
-    <link rel="stylesheet" href="app/views/template/css/styleLogin.css">
+  
 
     <title>Cocina</title>
    

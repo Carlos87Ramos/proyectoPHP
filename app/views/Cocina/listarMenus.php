@@ -4,9 +4,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 <body>
-    <h1>Ménu</h1>
+    <h2>Ménu</h2>
 
-<table id ="customers">
+    <table class="table">
        <tr>
            <th>Foto</th>
            <th>ID</th>
@@ -33,7 +33,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            
            echo '<td> <a href="'. FOLDER_PATH.'/Cocina/listarMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-pen-to-square"></i></a> </td>';
            echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/deleteMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> </td>';
-           echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/addProductosReceta/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> </td>';
+           echo '<td> <a onclik="return eliminar()" href="'. FOLDER_PATH.'/Cocina/addProductosReceta/'.$info_menu[$i][1].'"> <i class="fa-solid fa-plus"></i></a> </td>';
            echo '</tr>';
        }
 

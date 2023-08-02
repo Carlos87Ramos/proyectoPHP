@@ -2,7 +2,7 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+ <?php //require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 
 
 
@@ -28,7 +28,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <h2>Iniciar sesión</h2>
     <form method="POST" action="<?= FOLDER_PATH . '/Login/signIn' ?>">
       <div class="form-group">
-      <img class="mb-4" src="fondoSystem.png" alt="" width="100" height="100">
+      <img src= "/img/fondoSystem.svg"alt="" width="100" height="100"><i class="fa-solid fa-plus"></i>
 
         <input type="text" id="cedula" name="cedula"  placeholder="Cedula sin guion" required >
       </div>

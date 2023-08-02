@@ -14,12 +14,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
-<nav>
+<div class="col-3" > <nav>
   <ul>
     <li class="active"><a href="#">Inicio</a></li>
     <li><a href="#">Herramientas</a></li>
     <li><a href="#">Soporte</a></li>
   </ul>
-</nav>
+</nav></div>
+
 </body>
 </html>

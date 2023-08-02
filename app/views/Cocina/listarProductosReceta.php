@@ -34,7 +34,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        </div>
 
     <h3>Receta</h3>
-    <table id ="customers">
+    <table class="table">
     <?php
 
 for ($i=0; $i <count($info_producto_Receta); $i++) { 
@@ -58,7 +58,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
 
     <H3> Productos Disponibles</H3>
 
-    <table id ="customers">
+    <table class="table">
        <tr>
            <th>Foto</th>
            <th>ID</th>

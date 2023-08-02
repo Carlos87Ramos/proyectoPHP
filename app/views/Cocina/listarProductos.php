@@ -4,9 +4,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 <body>
-<h1>Productos</h1>
+<h2> Lista de Productos</h2>
 <br>
-<table id ="customers">
+<table class="table">
        <tr>
            <th>Foto</th>
            <th>ID</th>

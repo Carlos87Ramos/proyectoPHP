@@ -3,10 +3,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+<body>
+<h2> Agregar Ménu</h2>
 
 <div class="container">
 
-        <h2> Agregar Ménu</h2>
+        <h3> Agregar Ménu</h3>
 
     <form method="POST" action="<?=FOLDER_PATH.'/Cocina/addMenu'?>"enctype="multipart/form-data" >
         <div class="label" >
@@ -32,4 +34,3 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     </div>
 </body>
 </html>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>

@@ -12,8 +12,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/0ce3f10c55.js" crossorigin="anonymous"></script>  
     <style>
+
+
+
    body {
   margin: 0 px;
   padding: 0 px;
@@ -31,7 +36,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
  
 }
 h2 {
-   color: black; 
+   color: white; 
    text-align: center;
    font-size: ;
 }
@@ -88,9 +93,12 @@ table{
   width: 100%;
 }
 
-#customers td, #customers th {
+#table td,  {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: center;
+  text-align
+
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -106,4 +114,5 @@ table{
 }
 
     </style>
+    
 </head>

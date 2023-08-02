@@ -143,9 +143,9 @@ class CocinaController extends Controller
     {
         $result = $this->model->eliminarProductoReceta($request_params);
         if (!$result) {
-            return $this->addProductosReceta("Hubo un error al agregar el Producto", 'warning');
+            return $this->addProductoReceta("Hubo un error al agregar el Producto", 'warning');
         }
-        $this->addProductosReceta($request_params['Id'],"  Producto eliminado correctamente");
+        $this->addProductoReceta($request_params['Id'],"  Producto eliminado correctamente");
 
     }
   
