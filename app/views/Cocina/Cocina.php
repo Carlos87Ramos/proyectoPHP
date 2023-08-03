@@ -17,6 +17,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    
    <?php !empty($show_listarMenus)? require'app/views/Cocina/listarMenus.php' : ''?>
    <?php !empty($show_addMenuForm) ? require'app/views/Cocina/addMenu.php' : '' ?>
+   <?php !empty($show_aplicar_menu) ? require'app/views/Cocina/aplicarMenu.php' : '' ?>
    <?php !empty($show_editar_menu) ? require'app/views/Cocina/editarMenu.php' : '' ?>
    <?php !empty($show_addProductoForm) ? require'app/views/Cocina/addProducto.php' : '' ?>
    <?php !empty($show_listarProductos)? require'app/views/Cocina/listarProductos.php' : ''?>
@@ -45,7 +46,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    
 </head>
 <body>
-  
+
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
 

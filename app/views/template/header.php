@@ -51,7 +51,7 @@ h1{
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Cocina/Login">Inicio</a>  </li>
+    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Home">Inicio</a>  </li>
     <li class="nav-item">
     <a class="nav-link"  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a>  </li>
   <li class="nav-item">

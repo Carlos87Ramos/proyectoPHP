@@ -61,7 +61,32 @@ class CocinaController extends Controller
 
         
     }
-    public function listarMenu($Id)
+    public function listarMenu($Id , $message = '', $message_type= 'success')
+    {
+       
+       $result = $this->model->listarMenu($Id);
+       $info_menu = !$result->num_rows ? $info_menu= array():$info_menu = $result->fetch_object();
+
+       $res = $this->model->listarProductosReceta($Id);
+       $contador = 0;
+       $info_producto_Receta= [];
+       while ($row = $res->fetch_assoc())
+       {
+           $info_producto_Receta [$contador][1]= $row['ID'];
+           $info_producto_Receta [$contador][2]= $row['Nombre'];
+           $info_producto_Receta [$contador][3]= $row['Descripcion'];
+           $info_producto_Receta [$contador][4]= $row['Foto'];
+           $info_producto_Receta [$contador][5]= $row['Cantidad'];
+           $contador++;
+       }
+
+        $params= array ('info_menu'=> $info_menu, 'show_aplicar_menu'=> true,'info_producto_Receta'=>$info_producto_Receta ,'message_type'=>$message_type,'message'=> $message);
+        $this->render(__CLASS__, $params);
+
+    }
+
+
+    public function editarMenu($Id)
     {
        
        $result = $this->model->listarMenu($Id);
@@ -80,9 +105,20 @@ class CocinaController extends Controller
             return $this->listarMenus("Hubo un error al eliminar el Menú", 'warning');
         }
         $this->listarMenus("Menú eliminado correctamente");
-  
-    
 
+    }
+    public function aplicarMenu($request_params)
+    {
+        $result=$this->model->checkearCatidadades($request_params);
+        if(!$result)
+        {
+            $result =$this->model->actualizarCantidades($request_params);
+            if($result)
+            {
+                return $this->listarMenu($request_params['Id'],"Menu aplicado con exito . los productos fueron dados de baja correctamente");
+            }
+            $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ");
+        }
     }
     public function updateMenu($request_params)
     {
@@ -143,10 +179,20 @@ class CocinaController extends Controller
     {
         $result = $this->model->eliminarProductoReceta($request_params);
         if (!$result) {
-            return $this->addProductoReceta("Hubo un error al agregar el Producto", 'warning');
+            return $this->addProductosReceta("Hubo un error al agregar el Producto", 'warning');
         }
-        $this->addProductoReceta($request_params['Id'],"  Producto eliminado correctamente");
+        $this->addProductosReceta($request_params['Id'],"  Producto eliminado correctamente");
 
+    }
+
+    public function editarCantidadProductoReceta($request_params)
+    {
+        $result = $this->model->editarCantidadProductoReceta($request_params);  
+        if (!$result) 
+            return $this->listarMenu($request_params['Id'], "Hubo un error al actualizar la cantidad",'warning');
+        
+            $this->listarMenu($request_params['Id'], "Cantidad actualizada correctamente");
+        
     }
   
     public function addProductoForm()

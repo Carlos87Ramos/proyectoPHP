@@ -9,7 +9,9 @@
         
 </head>
 <body>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
 
 
 
@@ -54,5 +56,5 @@
     </div>
 </body>
 </html>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
+
 
