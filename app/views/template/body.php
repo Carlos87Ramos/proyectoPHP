@@ -12,6 +12,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/0ce3f10c55.js" crossorigin="anonymous"></script>  
@@ -25,7 +27,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   text-align: center;
   background: linear-gradient(to right,rgb(17, 17, 20), rgb(55, 60, 148));
   }
-  .container {
+ .container {
   width: 400px;
   margin: 100px auto;
   background-color: #fff;
@@ -38,7 +40,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 h2 {
    color: white; 
    text-align: center;
-   font-size: ;
+   font: size 16px; ;
+   font-family:'Times New Roman';
 }
 .form-group {
   margin-bottom: 15px;

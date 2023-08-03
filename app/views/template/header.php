@@ -15,9 +15,11 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
+    <link rel="stylesheet" type="text/css" href="app/views/template/css/div.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="app/views/template/css/styleHome.css">
+   
     <script src="https://kit.fontawesome.com/0ce3f10c55.js" crossorigin="anonymous"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <style>
@@ -45,7 +47,7 @@ h1{
 </head>
 <body>
 <header>
-    <h1> System MVC</h1>
+    
    <!-- <i class="fa-solid fa-bars"></i>-->
    
 
@@ -58,6 +60,8 @@ h1{
     <a class="nav-link"  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Productos</a></li>
   <li class="nav-item">
     <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a></li>
+    <li class="nav-item">
+    <a class="nav-link "  href="<?=FOLDER_PATH?>/Registro">Movimientos de Stock</a></li>
   <li class="nav-item">
     <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a></li>
   <li class="nav-item dropdown">

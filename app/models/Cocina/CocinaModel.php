@@ -218,7 +218,23 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
      $sql = "UPDATE Receta SET Cantidad = $cantidad WHERE Id_Menu = $id and Id_Producto = $idProducto";
      return $this->db->query($sql);
    } 
+   public function checkearCatidadades($params)
+   {
+    $id = $this->db->real_escape_string($params['Id']);
+    $sql= "SELECT ID FROM Receta r, Producto p WHERE r.Id_Menu= $id and r.Id_Producto = p.ID and r.Cantidad > p.Cantidad";
+    return $this->db->query($sql);
+  }
+  public function actualizarCantidades($params)
+  {
+    $id = $this->db->real_escape_string($params['Id']);
+
+    $sql = "UPDATE Producto p SET p.Cantidad = (p.Cantidad - r.Cantidad) FROM Receta r
+            WHERE r.Id_Menu =$id and r.Id_Producto = p.Id ";
+    return $this->db->query($sql);
+  }
+
       public function eliminarProductoReceta($params)
+     
     {
       $id = $this->db->real_escape_string($params['Id']);
       $idProducto = $this->db->real_escape_string($params['IdProducto']);

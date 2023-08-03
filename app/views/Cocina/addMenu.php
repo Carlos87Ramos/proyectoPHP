@@ -3,10 +3,25 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
-<body>
-<h2> Agregar Ménu</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app/views/template/css/styleHome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addMenu</title>
+</head>
 
-<div class="container">
+<body class="text-center">
+    <div class="Conteiner" >
+      <div class="row" >
+        <div class="col-4" ><h2> Menu lateral</h2></div>
+        
+  <div class="col-4">
+   <h2> Agregar Ménu</h2>
+
+    <div class="container">
+
 
         <h3> Agregar Ménu</h3>
 
@@ -32,5 +47,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        <button type="submit">Agregar</button>
     </form>
     </div>
+    </div>
+    </div>
+    <div class="col-4"><h2>Propaganda</h2></div>
 </body>
 </html>

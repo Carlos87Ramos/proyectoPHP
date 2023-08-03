@@ -3,9 +3,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
-<body>
-    <h2>Ménu</h2>
-
+<body class="text-center">
+    <div class="Conteiner" >
+      <div class="row" >
+        <div class="col-3" ><h2> Menu lateral</h2></div>
+        
+<div class="col-6">
+    <h2>* Lista de Menu *</h2>
     <table class="table">
        <tr>
            <th>Foto</th>
@@ -37,10 +41,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
        ?>
    </table>
+   </div>
   
+  
+   <div class="col-3" ><h2>Propaganda</h2></div>
 </body>
 </html>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
+
 
 
 

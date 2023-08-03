@@ -1,6 +1,6 @@
 
 <head>
-<link rel="stylesheet" href="app/views/template/css/styleHome.css">
+
 <style>
   .footer{
     text-align: center;

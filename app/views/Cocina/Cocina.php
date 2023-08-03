@@ -8,12 +8,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <!--<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a> </button>
 <button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Productos</a> </button> 
 <button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a> </button>
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button> -->
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button> 
+<button type="submit"><a  href="<?=FOLDER_PATH?>/Registro">Movimientos de stock</a> </button>-->
 
 <br>
 
 <div>
-  <?php !empty($message) ? print($message):'' ?> 
+  <?php !empty($message) ? print( "<div class = \"alert alert-$message_type\">$message</div>"):'' ?> 
    
    <?php !empty($show_listarMenus)? require'app/views/Cocina/listarMenus.php' : ''?>
    <?php !empty($show_addMenuForm) ? require'app/views/Cocina/addMenu.php' : '' ?>

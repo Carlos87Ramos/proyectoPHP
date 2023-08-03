@@ -4,24 +4,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>editarMenu</title>
+       </head>
+
+       
+<body class="text-center">
+    <div class="Conteiner" >
+      <div class="row" >
+       <div class="col-2" ><h2> Menu lateral</h2></div>
        
 
-        
-</head>
-<body>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
-<h2>Aplicar Menu</h2>
-
+<div class="col-4">
 
 <div class="container">
         
 <h3>Aplicar Menu</h3>
+
 <?php !empty($message) ? print($message):'' ?> 
 
-
-
-<form method="POST" action="<?= FOLDER_PATH .'/Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >
+<form method="POST" action="<?= FOLDER_PATH .'/Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >  
         <div class="label" >
 
        <label for="Nombre"> Nombre</label>
@@ -45,20 +46,19 @@
        </div>
        <div class="boton" >
         <input type="hidden" name="Id" value="<?= $info_menu->ID ?>">
-
-       <button type="submit">Aplicar Menu</button>
+        <button type="submit">Aplicar Menu</button>
        </div>
-
        </form>
     </div>
+    </div>
+    
+    <div class="col-6">
 
     <h2>   Receta </h2>
   
 
     <table class="table">
-    <?php
-
-for ($i=0; $i <count($info_producto_Receta); $i++) { 
+    <?php for ($i=0; $i <count($info_producto_Receta); $i++) { 
 
     echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/editarCantidadProductoReceta ">';
     echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
@@ -76,7 +76,9 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
 }
 
 ?>
-
+</div>
+</div>
+</div>
 </body>
 </html>
 

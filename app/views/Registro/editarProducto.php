@@ -1,11 +1,15 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
-<body>
+
 
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
-
-
+<body class="text-center">
+    <div class="Conteiner" >
+      <div class="row" >
+        <div class="col-4" ><h2> Menu lateral</h2></div>
+        
+<div class="col-4">
 <div class="container">
 
 <h2>Alta/Baja Producto</h2>
@@ -55,7 +59,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
     </form>
     </div>
+    </div>
+   
+        <div class="col-3"><h2>Propaganda</h2></div>
 </body>
 </html>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
+

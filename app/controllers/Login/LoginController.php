@@ -46,7 +46,7 @@ class LoginController extends Controller
                 
                 if ($result->Tipo == 'Cocinero')
          
-                header('location: /proyectoPHP/Cocina');
+                header('location: /proyectoPHP/Home');
 
             } else
              {

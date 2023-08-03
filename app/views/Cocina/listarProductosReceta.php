@@ -3,8 +3,11 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
-<body>
-    
+<body class="text-center">
+    <div class="Conteiner" >
+      <div class="row" >
+        <div class="col-3" ><h2>* Menu lateral*</h2></div>
+        <div class="col-4">
 
         <div class="label" >
 
@@ -32,8 +35,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
         <input type="hidden" name="Id" value="<?= $info_menu->ID ?>">
 
        </div>
-
-    <h3>Receta</h3>
+       </div>
+       <div class="col-4">
+    <h2> * Receta *</h2>
     <table class="table">
     <?php
 
@@ -55,8 +59,9 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
 
 ?>
     </table>
-
-    <H3> Productos Disponibles</H3>
+    </div>
+    <div class="col-4">
+    <h2> Productos Disponibles</h2>
 
     <table class="table">
        <tr>
@@ -93,7 +98,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
    </table>
     </form>
 
-
-
+</div>
+</div>
 
     </body>

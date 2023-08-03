@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-08-2023 a las 03:18:45
+-- Tiempo de generación: 03-08-2023 a las 22:01:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -44,9 +44,10 @@ CREATE TABLE `Menu` (
 
 INSERT INTO `Menu` (`ID`, `Nombre`, `Descripcion`, `Observaciones`, `Foto`) VALUES
 (4, 'Strogonoff', 'de pollo', ' Con Arroz blanco', 'Strogonoff.jpeg'),
-(5, 'Fideo con tuco', 'de vaca', '', 'fideo con tuco.jpeg'),
-(7, 'Lenteja', 'con arroz', '', 'Lenteja.jpeg'),
-(10, 'Ensalada', ' de arroz', '', 'Ensalada-de-arroz.jpg');
+(5, 'Fideo con tuco', 'Carne de pollo', 'ss', 'fideo con tuco.jpeg'),
+(10, 'Ensalada', ' de arroz', '', 'Ensalada-de-arroz.jpg'),
+(11, 'Fideo con tuco', 'Carne de Vaca', '', 'fideo con tuco.jpeg'),
+(13, 'Asado', 'Oveja', 'bien', 'Asado.png');
 
 -- --------------------------------------------------------
 
@@ -69,16 +70,12 @@ CREATE TABLE `Producto` (
 --
 
 INSERT INTO `Producto` (`ID`, `Nombre`, `Descripcion`, `Foto`, `Cantidad`, `Tipo`) VALUES
-(11, ' Harrina', 'trigo', 'Harina.jpeg', 48, 'Unidad'),
-(12, 'Aceite', 'Soya', 'Aceite.jpeg', 0, 'Unidad'),
-(13, 'Carne', 'Bovina', 'Carne.jpg', 0, 'Unidad'),
-(14, 'Zapallo', 'Koreano', 'Zapallo.jpeg', 0, 'Unidad'),
-(15, 'Pan', 'Casero', 'Pan.jpeg', 0, 'Kg'),
-(17, 'Fideo', 'Moña', 'Fideo.jpeg', 0, 'Unidad'),
-(18, 'Fideo', 'Tirabuzon', 'Fideo.jpeg', 0, 'Unidad'),
-(21, 'Papa', 'rosada', 'Papa.jpeg', 0, 'Kg'),
-(23, 'Azucar', 'Cristal', 'Azucar.jpeg', 8, 'Kg'),
-(24, 'Azucar', 'Santa Clara', 'Azucar.jpeg', 0, 'Kg');
+(11, '   Harina', 'Trigo', 'Harina.jpeg', 10, 'Unidad'),
+(23, 'Azucar', 'Cristal', 'Azucar.jpeg', 10, 'Kg'),
+(26, 'Poroto', 'Negro', 'Poroto N.jpeg', 10, 'Kg'),
+(27, 'Sal', 'De Mesa', 'sal .jpg', 10, 'Kg'),
+(28, 'Carne ', 'Bovina ', 'Carne.jpg', 10, 'Kg'),
+(29, 'Cebolla', 'Rosada', 'Cebolla.jpeg', 10, 'Kg');
 
 -- --------------------------------------------------------
 
@@ -92,6 +89,17 @@ CREATE TABLE `Receta` (
   `Id_Menu` int(11) NOT NULL,
   `Id_Producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `Receta`
+--
+
+INSERT INTO `Receta` (`Cantidad`, `Id_Menu`, `Id_Producto`) VALUES
+(5, 4, 11),
+(2, 4, 28),
+(3, 4, 29),
+(3, 5, 11),
+(27, 5, 27);
 
 -- --------------------------------------------------------
 
@@ -113,19 +121,12 @@ CREATE TABLE `Registro` (
 --
 
 INSERT INTO `Registro` (`Id`, `id_Producto`, `Tipo`, `Cantidad`, `Fecha`) VALUES
-(1, 23, 'Entrada', 10, '2023-07-24 15:57:32'),
-(2, 23, 'Entrada', 10, '2023-07-24 15:58:05'),
-(3, 23, 'Entrada', 10, '2023-07-24 15:59:15'),
-(4, 23, 'Entrada', 10, '2023-07-24 16:00:10'),
-(5, 23, 'Entrada', 10, '2023-07-24 16:01:19'),
-(6, 23, 'Entrada', 10, '2023-07-24 16:02:10'),
-(7, 23, 'Entrada', 10, '2023-07-24 16:02:51'),
-(8, 23, 'Entrada', 5, '2023-07-24 16:05:21'),
-(9, 23, 'Salida', 7, '2023-07-24 16:05:47'),
-(10, 11, 'Entrada', 12, '2023-07-24 16:09:01'),
-(11, 11, 'Entrada', 12, '2023-07-24 16:29:21'),
-(12, 11, 'Entrada', 12, '2023-07-24 16:33:17'),
-(13, 11, 'Entrada', 12, '2023-07-24 16:34:53');
+(14, 11, 'Entrada', 10, '2023-08-03 16:56:23'),
+(15, 23, 'Entrada', 10, '2023-08-03 16:56:34'),
+(16, 26, 'Entrada', 10, '2023-08-03 16:56:47'),
+(17, 27, 'Entrada', 10, '2023-08-03 16:57:09'),
+(18, 28, 'Entrada', 10, '2023-08-03 16:57:28'),
+(19, 29, 'Entrada', 10, '2023-08-03 16:58:49');
 
 -- --------------------------------------------------------
 
@@ -193,19 +194,19 @@ ALTER TABLE `Usuario`
 -- AUTO_INCREMENT de la tabla `Menu`
 --
 ALTER TABLE `Menu`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `Producto`
 --
 ALTER TABLE `Producto`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `Registro`
 --
 ALTER TABLE `Registro`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas

@@ -107,6 +107,7 @@ class CocinaController extends Controller
         $this->listarMenus("Menú eliminado correctamente");
 
     }
+    // funcion dar de baja y chekear las cantidades
     public function aplicarMenu($request_params)
     {
         $result=$this->model->checkearCatidadades($request_params);
@@ -119,6 +120,7 @@ class CocinaController extends Controller
             }
             $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ");
         }
+        $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ");
     }
     public function updateMenu($request_params)
     {
