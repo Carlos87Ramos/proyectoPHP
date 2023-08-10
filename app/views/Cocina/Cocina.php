@@ -5,11 +5,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 <body>
-<!--<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a> </button>
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Productos</a> </button> 
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a> </button>
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a> </button> 
-<button type="submit"><a  href="<?=FOLDER_PATH?>/Registro">Movimientos de stock</a> </button>-->
+
 
 <br>
 
@@ -25,7 +21,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    <?php !empty($show_editar_producto) ? require'app/views/Cocina/editarProducto.php' : '' ?>
 
    <?php !empty($show_listarProductosReceta)? require'app/views/Cocina/listarProductosReceta.php' : ''?>
-
+   <?php require_once PATH_HEADER .'/header.php'?>
 </div>
 
 

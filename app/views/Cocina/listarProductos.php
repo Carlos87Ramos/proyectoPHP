@@ -43,7 +43,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    </table>
  </div>
 
-        <div class="col-3"><h2>Propaganda</h2></div>
+        <div class="col-3"><h2>*Propaganda</h2></div>
 </body>
 </html>
 

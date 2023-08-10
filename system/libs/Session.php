@@ -2,8 +2,19 @@
 
 class Session 
 {
+    private static  $session = NULL;
 
-    public function init()
+    private function __construct(){}
+
+    public static function getSession()
+    {
+        if( is_null (self::$session)){
+            self::$session = new Session();
+            self::$session->init();
+        }
+        return self::$session;
+    }
+     public function init()
     
     
     {

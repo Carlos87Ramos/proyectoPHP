@@ -47,7 +47,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            <form class="form-signin">
             
               <img class="mb-4" src="img/user-group-solid.svg" alt="Logo de la empresa" class="logo" width="85" height="85">
-              <img class="mb-4"  src="/imagenes/fondoSystem.png" alt="Logo de la empresa" width="85" height="85">
+              
               <h1 class="h3 mb-3 font-weight-normal">Inicie Sesion</h1>
               <label for="inputEmail" class="sr-only">Usuario</label>
               <input type="text" id="cedula" name="cedula"class="form-control" placeholder="Usuario" required autofocus>
@@ -65,8 +65,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
             </form>
           </div>
           <div class="col-4"> <h2> Anuncios</h2>
-          <img src="/imagenes/fondoSystem.png" width="100px" height="100px">
-          <img class="mb-4" src="<?= FOLDER_PATH . '/imgagenes/fondoSystem.png' ?>" alt="Logo de la empresa" class="logo" width="85" height="85">
+         
         </div>
       </div> 
       
@@ -80,28 +79,3 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 </html>
 
 
-<!--<div class="col-4">
-  <div class="container">
-    <h2>Iniciar sesión</h2>
-
-    <form method="POST" action="">
-      <div class="form-group">
-      <img src= "img/user-group-light.svg "alt="" width="100" height="100" >
-     
-
-        <input type="text" id="cedula" name="cedula"  placeholder="Cedula sin guion" required >
-      </div>
-
-      <div class="form-group">
-        
-        <input type="password" id="password" name="password" placeholder="Contraseña" required>
-         
-        </div>
-      <div class="form-group">
-        <input type="submit" value="Iniciar sesión">
-      </div>
-    </form>
-  </div>
-  </div>
-
-<div class="col-4"> <H1>Propaganda</H1></div>-->

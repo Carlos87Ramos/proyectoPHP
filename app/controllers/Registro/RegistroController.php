@@ -15,9 +15,8 @@ class RegistroController extends Controller
 
 
     public function __construct()
-    {
-        $this->session = new Session();
-        $this->session->init();
+    {    $this->session = Session::getSession();
+       
         if ($this->session->getStatus()===1 || empty($this->session->get('cedula')))
                  exit ('acceso denegado');
         $this->model = new RegistroModel();
@@ -46,7 +45,7 @@ class RegistroController extends Controller
             $contador++;
         }
       
-        $params = array('info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
+        $params = array('nombre'=>$this->session->get('nombre'),'info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
         $this->render(__CLASS__,$params);
     }
 
@@ -56,7 +55,7 @@ class RegistroController extends Controller
        $result = $this->modelCocina->listarProducto($Id);
        $info_producto = !$result->num_rows ? $info_producto= array():$info_producto = $result->fetch_object();
 
-        $params= array ('info_producto'=> $info_producto, 'show_editar_producto'=> true);
+        $params= array ('nombre'=>$this->session->get('nombre'),'info_producto'=> $info_producto, 'show_editar_producto'=> true);
         $this->render(__CLASS__, $params);
 
     }

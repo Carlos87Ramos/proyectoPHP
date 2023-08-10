@@ -1,6 +1,7 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');
 require_once ROOT . FOLDER_PATH .'/app/models/Cocina/CocinaModel.php';
+require_once ROOT . FOLDER_PATH .'/app/models/Registro/RegistroModel.php';
 require_once LIBS_ROUTE .'Session.php';
 
 class CocinaController extends Controller
@@ -9,14 +10,16 @@ class CocinaController extends Controller
 {
     private $session;
     private $model;
+    private $modelRegistro;
 
     public function __construct()
     {
-        $this->session = new Session();
-        $this->session->init();
+        $this->session = Session::getSession();
+       
         if ($this->session->getStatus()===1 || empty($this->session->get('cedula')))
                  exit ('acceso denegado');
         $this->model = new CocinaModel();
+        $this->modelRegistro = new RegistroModel();
     }  
 
     public function exec()
@@ -37,12 +40,12 @@ class CocinaController extends Controller
             $info_menu[$contador][5]= $row['Observaciones'];
             $contador++;
         }
-        $params = array('info_menu' => $info_menu ,'show_listarMenus'=> true,'message_type'=>$message_type,'message'=> $message);
+        $params = array('nombre'=>$this->session->get('nombre'),'info_menu' => $info_menu ,'show_listarMenus'=> true,'message_type'=>$message_type,'message'=> $message);
         $this->render(__CLASS__, $params);
     }
     public function addMenuForm()
     {
-            $params=array('show_addMenuForm'=> true);
+            $params=array('nombre'=>$this->session->get('nombre'),'show_addMenuForm'=> true);
             $this->render(__CLASS__, $params);
 
 
@@ -80,7 +83,7 @@ class CocinaController extends Controller
            $contador++;
        }
 
-        $params= array ('info_menu'=> $info_menu, 'show_aplicar_menu'=> true,'info_producto_Receta'=>$info_producto_Receta ,'message_type'=>$message_type,'message'=> $message);
+        $params= array ('nombre'=>$this->session->get('nombre'),'info_menu'=> $info_menu, 'show_aplicar_menu'=> true,'info_producto_Receta'=>$info_producto_Receta ,'message_type'=>$message_type,'message'=> $message);
         $this->render(__CLASS__, $params);
 
     }
@@ -92,7 +95,7 @@ class CocinaController extends Controller
        $result = $this->model->listarMenu($Id);
        $info_menu = !$result->num_rows ? $info_menu= array():$info_menu = $result->fetch_object();
 
-        $params= array ('info_menu'=> $info_menu, 'show_editar_menu'=> true);
+        $params= array ('nombre'=>$this->session->get('nombre'),'info_menu'=> $info_menu, 'show_editar_menu'=> true);
         $this->render(__CLASS__, $params);
 
     }
@@ -111,16 +114,19 @@ class CocinaController extends Controller
     public function aplicarMenu($request_params)
     {
         $result=$this->model->checkearCatidadades($request_params);
-        if(!$result)
+       
+        if(mysqli_num_rows($result) === 0)
         {
             $result =$this->model->actualizarCantidades($request_params);
             if($result)
             {
-                return $this->listarMenu($request_params['Id'],"Menu aplicado con exito . los productos fueron dados de baja correctamente");
+                $result= $this->modelRegistro->registrarProductosMenu($request_params);
+
+                return $this->listarMenus("Menu aplicado con exito . los productos fueron dados de baja correctamente");
             }
-            $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ");
+          
         }
-        $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ");
+        $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ",'warning');
     }
     public function updateMenu($request_params)
     {
@@ -165,7 +171,7 @@ class CocinaController extends Controller
        $result = $this->model->listarMenu($Id);
        $info_menu = !$result->num_rows ? $info_menu= array():$info_menu = $result->fetch_object();
       
-        $params = array('info_producto_Receta' => $info_producto_Receta,'info_producto' => $info_producto,'show_listarProductosReceta'=> true,'message_type' => $message_type,'message'=> $message,'info_menu'=>$info_menu);
+        $params = array('nombre'=>$this->session->get('nombre'),'info_producto_Receta' => $info_producto_Receta,'info_producto' => $info_producto,'show_listarProductosReceta'=> true,'message_type' => $message_type,'message'=> $message,'info_menu'=>$info_menu);
         $this->render(__CLASS__,$params);
     }
     public function agregarProductoReceta($request_params)
@@ -199,7 +205,7 @@ class CocinaController extends Controller
   
     public function addProductoForm()
     {
-            $params=array('show_addProductoForm'=> true);
+            $params=array('nombre'=>$this->session->get('nombre'),'show_addProductoForm'=> true);
             $this->render(__CLASS__, $params);
 
     }
@@ -231,7 +237,7 @@ class CocinaController extends Controller
             $contador++;
         }
       
-        $params = array('info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
+        $params = array('nombre'=>$this->session->get('nombre'),'info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
         $this->render(__CLASS__,$params);
     }
 
@@ -241,7 +247,7 @@ class CocinaController extends Controller
        $result = $this->model->listarProducto($Id);
        $info_producto = !$result->num_rows ? $info_producto= array():$info_producto = $result->fetch_object();
 
-        $params= array ('info_producto'=> $info_producto, 'show_editar_producto'=> true);
+        $params= array ('nombre'=>$this->session->get('nombre'),'info_producto'=> $info_producto, 'show_editar_producto'=> true);
         $this->render(__CLASS__, $params);
 
     }

@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->model = new LoginModel();
-        $this->session = new Session();
+        $this->session = Session::getSession();
     }
     
     public function exec()
@@ -46,7 +46,7 @@ class LoginController extends Controller
                 
                 if ($result->Tipo == 'Cocinero')
          
-                header('location: /proyectoPHP/Home');
+                header('location: /proyectoPHP/Cocina');
 
             } else
              {
@@ -62,6 +62,11 @@ class LoginController extends Controller
     $params = array('error_message'=> $message);
     $this->render(__CLASS__, $params);
     }
+    public function logout()
+    {
+    $this->session->close();
+    header('location:'. FOLDER_PATH);
+}
 }
 
 

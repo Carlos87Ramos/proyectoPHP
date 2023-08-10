@@ -18,6 +18,8 @@ define('PATH_VIEWS',FOLDER_PATH .'/app/views/');
 define( 'LIBS_ROUTE' , ROOT . FOLDER_PATH . '/system/libs/');
 define('PATH_UPLOAD_IMAGES',ROOT.'/uploads/');
 define('DEFAULT_CONTROLLER','Home');
+define('PATH_HEADER', ROOT .FOLDER_PATH .'/app/template/');
+
 ////////////////////////////
 // valores de base de datos
 /////////////////////////////

@@ -22,7 +22,7 @@
 
 <?php !empty($message) ? print($message):'' ?> 
 
-<form method="POST" action="<?= FOLDER_PATH .'/Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >  
+<form method="POST" action="<?= FOLDER_PATH .'Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >  
         <div class="label" >
 
        <label for="Nombre"> Nombre</label>
@@ -47,6 +47,7 @@
        <div class="boton" >
         <input type="hidden" name="Id" value="<?= $info_menu->ID ?>">
         <button type="submit">Aplicar Menu</button>
+        <a class="btn btn-secondary" role= "button" href="javascript:history.back()">Atras</a>
        </div>
        </form>
     </div>

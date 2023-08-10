@@ -222,14 +222,21 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
    {
     $id = $this->db->real_escape_string($params['Id']);
     $sql= "SELECT ID FROM Receta r, Producto p WHERE r.Id_Menu= $id and r.Id_Producto = p.ID and r.Cantidad > p.Cantidad";
+   
     return $this->db->query($sql);
   }
   public function actualizarCantidades($params)
   {
     $id = $this->db->real_escape_string($params['Id']);
 
-    $sql = "UPDATE Producto p SET p.Cantidad = (p.Cantidad - r.Cantidad) FROM Receta r
-            WHERE r.Id_Menu =$id and r.Id_Producto = p.Id ";
+    //$sql = "UPDATE Producto p SET p.Cantidad = p.Cantidad - r.Cantidad FROM Receta r
+     //       WHERE r.Id_Menu =$id and r.Id_Producto = p.Id ";
+     //       print($sql);
+     
+     $sql = "UPDATE Producto p JOIN Receta r ON r.Id_Producto = p.Id
+     SET p.Cantidad = p.Cantidad - r.Cantidad
+     WHERE r.Id_Menu =$id and r.Id_Producto = p.Id " ;
+     
     return $this->db->query($sql);
   }
 
