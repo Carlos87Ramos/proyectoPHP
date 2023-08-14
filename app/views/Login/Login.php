@@ -40,13 +40,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   <div class="Conteiner" >
    <div class="row" >
 
-      <div class="col-4"> <h2> Menu lateral</h2>
-            </div>
-      <div class="col-4"> 
+      
+      <div class="col-12"> 
         <form method="POST" action="<?= FOLDER_PATH . '/Login/signIn' ?>">
            <form class="form-signin">
             
-              <img class="mb-4" src="img/user-group-solid.svg" alt="Logo de la empresa" class="logo" width="85" height="85">
+             
+              <img src="img/fondoSystem.png" alt="Fondo del sistema" class="logo" width="85" height="85">
               
               <h1 class="h3 mb-3 font-weight-normal">Inicie Sesion</h1>
               <label for="inputEmail" class="sr-only">Usuario</label>
@@ -64,9 +64,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
               <p class="mt-5 mb-3 text-muted">&copy; System  V.M.C 2023</p>
             </form>
           </div>
-          <div class="col-4"> <h2> Anuncios</h2>
-         
-        </div>
+          
       </div> 
       
   </div>
