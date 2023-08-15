@@ -42,7 +42,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <?php
 
 for ($i=0; $i <count($info_producto_Receta); $i++) { 
-
+    
     echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/eliminarProductoReceta ">';
     echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
     echo'<tr>';
@@ -78,7 +78,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
        <?php
 
        for ($i=0; $i <count($info_producto); $i++) { 
-
+        $step = $info_producto[$i][6] ==='Kg' ?'step = "0.1"':'';
            echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/agregarProductoReceta ">';
            echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
            echo'<tr>';
@@ -87,7 +87,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
            echo '<td>'.$info_producto[$i][2].'</td>';
            echo '<td>'.$info_producto[$i][3].'</td>';
            
-           echo '<td><input type="text" name = "Cantidad" value=""></td>';
+           echo '<td><input type=" '.$step.'" name = "Cantidad" value=""></td>';
            echo '<td><input type="hidden" name = "IdProducto" value="'.$info_producto[$i][1].'"></td>';
            echo '<td><input type="submit" value="Anadir a la receta"></td>';
            echo '</tr>';

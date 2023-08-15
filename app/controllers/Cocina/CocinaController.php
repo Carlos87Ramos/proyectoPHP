@@ -120,7 +120,7 @@ class CocinaController extends Controller
             $result =$this->model->actualizarCantidades($request_params);
             if($result)
             {
-                $result= $this->modelRegistro->registrarProductosMenu($request_params);
+                $result= $this->modelRegistro->registrarProductosMenu($request_params , $this->session->get('cedula'));
 
                 return $this->listarMenus("Menu aplicado con exito . los productos fueron dados de baja correctamente");
             }
@@ -153,6 +153,7 @@ class CocinaController extends Controller
             $info_producto [$contador][3]= $row['Descripcion'];
             $info_producto [$contador][4]= $row['Foto'];
             $info_producto [$contador][5]= $row['Cantidad'];
+            $info_producto [$contador][5]= $row['Tipo'];
             $contador++;
         }
         $res = $this->model->listarProductosReceta($Id);

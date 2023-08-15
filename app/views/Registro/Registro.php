@@ -8,7 +8,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
  
  <body>
    
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+
 <h2> Movimiento de Stock</h2>
 
 <?php !empty($show_listarProductos)? require'app/views/Registro/listarProductos.php' : ''?>

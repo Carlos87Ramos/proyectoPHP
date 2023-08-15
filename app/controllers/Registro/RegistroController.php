@@ -62,7 +62,7 @@ class RegistroController extends Controller
 
     public function registroProducto($request_params)
     {
-  $result = $this->model->addRegistro($request_params);
+  $result = $this->model->addRegistro($request_params , $this->session->get('cedula'));
   if ($result)
   {
     

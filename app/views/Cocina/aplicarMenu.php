@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>editarMenu</title>
+  
        </head>
-
+      
        
 <body class="text-center">
     <div class="Conteiner" >
@@ -22,7 +23,7 @@
 
 <?php !empty($message) ? print($message):'' ?> 
 
-<form method="POST" action="<?= FOLDER_PATH .'Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >  
+<form method="POST" action="<?= FOLDER_PATH .'/Cocina/aplicarMenu'?> "enctype="multipart/form-data"  >  
         <div class="label" >
 
        <label for="Nombre"> Nombre</label>
@@ -47,8 +48,7 @@
        <div class="boton" >
         <input type="hidden" name="Id" value="<?= $info_menu->ID ?>">
         <button type="submit">Aplicar Menu</button>
-        <a class="btn btn-secondary" role= "button" href="javascript:history.back()">Atras</a>
-       </div>
+        
        </form>
     </div>
     </div>
@@ -69,7 +69,7 @@
     echo '<td>'.$info_producto_Receta[$i][2].'</td>';
     echo '<td>'.$info_producto_Receta[$i][3].'</td>';
    
-    echo '<td><input type="text" name ="Cantidad" value="'.$info_producto_Receta[$i][5].'"></td>';
+    echo '<td><input type="number"step = "0.1"name ="Cantidad" value="'.$info_producto_Receta[$i][5].'"></td>';
     echo '<td> <input type="hidden" name = "IdProducto" value="'.$info_producto_Receta[$i][1].'"></td>';
     echo '<td><input type="submit"value ="Editar Cantidad"></td>';
     echo '</tr>';

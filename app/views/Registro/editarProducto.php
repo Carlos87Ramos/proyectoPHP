@@ -1,9 +1,26 @@
+
+
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+
+
+
+
 <body class="text-center">
     <div class="Conteiner" >
       <div class="row" >
@@ -62,6 +79,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     </div>
    
         <div class="col-3"><h2>Propaganda</h2></div>
+  
 </body>
 </html>
 

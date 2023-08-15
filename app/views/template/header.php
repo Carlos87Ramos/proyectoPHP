@@ -2,12 +2,6 @@
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
-
-   
-   
-
-
-
    
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +26,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <style>
+
+
+
         header
 {
-    background-color:   rgb(144, 222, 170);
+  background-color: rgb(23, 70, 111);
     border-bottom: 4px solid red;
     padding: 20px 0;
     margin-bottom: 10px;
@@ -42,21 +39,31 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     text-align: center;
     
 }
-h1{
-    color: rgb(243, 236, 236);
-  }
+
+.nav-link {
+            color: white !important; /* Cambia el color de texto a blanco */
+        }
+
+.nav-link.active {
+            color:black  !important; /* Cambia el color de texto a negro*/
+        }
+.nav-link.bueno{
+          color:black  !important; /* Cambia el color de texto a negro*/
+        }
+
   button.icon{
     width: 25px ;
     height: 25px;
     background-color: #f2f2f2;
-    color: blue;
+    color: white;
   }
+  
  
     </style>
 </head>
 <body>
 <header>
-    <h1> Bienvenido a la Cocina</h1>
+    <h2 > Bienvenido a la Cocina</h2>
    <!-- <i class="fa-solid fa-bars"></i>-->
    
 
@@ -78,25 +85,11 @@ h1{
 
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true"><?=$nombre?></a>
-    <ul class="dropdown-menu">  <a class="nav-link "  href="<?=FOLDER_PATH?>/Login/logout">Cerrar sesión</a></ul>
+    <ul class="dropdown-menu">  <a class="nav-link bueno"  href="<?=FOLDER_PATH?>/Login/logout">Cerrar sesión</a></ul>
     </li>
-    <li class="nav-item"> <a class="nav-link"  href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>  </li>
+    <li class="nav-item"> <a class="nav-link active" href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>  </li>
 </ul>
-
-<!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
- 
 </header>
 </body>
 </html>
 
-...

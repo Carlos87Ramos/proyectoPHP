@@ -12,13 +12,15 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <style>
 
 
-
-   body {
-  margin: 0 px;
-  padding: 0 px;
-  text-align: center;
-  background: linear-gradient(to right,rgb(17, 17, 20), rgb(55, 60, 148));
-  }
+html,body{
+background-image: url('img/spaghetti.jpg') !important;
+background-repeat: no-repeat;
+height: 100%;
+width: 100%;
+text-align: center;
+font-family: 'Numans', sans-serif;
+}
+  
  .container {
   width: 400px;
   margin: 100px auto;
@@ -78,6 +80,12 @@ a{
     color:blue;
     
 }
+.table.td {
+            text-align: center; /* Aplica centrado al contenido de la celda */
+            vertical-align: middle !important;
+            justify-content: center;
+    align-items: center;
+        }
 table{
   color:white;
 }
@@ -86,13 +94,16 @@ table{
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+ 
 }
 
 #table td,  {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
-  text-align
+  vertical-align: middle !important;
+ 
+  
 
 }
 

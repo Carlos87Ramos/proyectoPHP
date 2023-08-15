@@ -18,17 +18,17 @@ class RegistroModel extends Model
         $sql = "SELECT * FROM Registro WHERE Id='{$id}'";
         return $this->db->query($sql);
     }
-    public function addRegistro($params)
+    public function addRegistro($params , $ciUsuario)
     {
         $tipo = $this->db->real_escape_string($params['Tipo']);
         $cantidad = $this->db->real_escape_string($params['Cantidad']);
         $id= $this->db->real_escape_string($params['Id']);
         
-        $sql = "INSERT INTO Registro (Tipo, Cantidad,Id_Producto) values ('$tipo','$cantidad','$id')";
+        $sql = "INSERT INTO Registro (Tipo, Cantidad,Id_Producto, ci_Usuario) values ('$tipo','$cantidad','$id', '$ciUsuario')";
         return $this->db->query($sql);
        
     } 
-    public function registrarProductosMenu($params)
+    public function registrarProductosMenu($params , $ciUsuario)
     {
         $id = $this->db->real_escape_string ($params['Id']);
         $sql= " SELECT* FROM Receta WHERE id_Menu = $id";
@@ -40,17 +40,18 @@ class RegistroModel extends Model
             
             if ($contador == 0) 
          
-                    $values .= "('Salida', " . $row['Cantidad'] . ", " . $row['Id_Producto'] . ")";
+                    $values .= "('Salida', " . $row['Cantidad'] . ", " . $row['Id_Producto'] .",'".$ciUsuario."' )";
                 
                 else 
                 {
-                    $values .= ", ('Salida', " . $row['Cantidad'] . ", " . $row['Id_Producto'] . ")";
+                    $values .= ", ('Salida', " . $row['Cantidad'] . ", " . $row['Id_Producto'] . ",'".$ciUsuario."')";
+                
                 }
                 $contador++;
            
             }
            
-         $sql = "INSERT INTO Registro (Tipo, Cantidad, Id_Producto) values".$values ;
+         $sql = "INSERT INTO Registro (Tipo, Cantidad, Id_Producto, ci_Usuario) values".$values ;
         return $this->db->query($sql);
     }
 }
