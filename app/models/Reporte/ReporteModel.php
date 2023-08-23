@@ -24,8 +24,13 @@ class ReporteModel extends Model
 
     $sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo,r.Cantidad,Fecha
             FROM Producto p, Usuario u,Registro r
-             WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and Fecha >='{$fecha_inicio} ' and Fecha <= '{$fecha_fin}'";
-
+             WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and date_format(Fecha,\"%Y-%m-%d\")>='{$fecha_inicio} ' and date_format(Fecha,\"%Y-%m-%d\")<= '{$fecha_fin}'";
+ 
+    return $this->db->query($sql);
+  }
+  public function listarUsuarios()
+  {
+    $sql= "SELECT Cedula , Nombre FROM Usuario";
     return $this->db->query($sql);
   }
 } 

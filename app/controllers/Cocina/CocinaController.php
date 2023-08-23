@@ -153,7 +153,7 @@ class CocinaController extends Controller
             $info_producto [$contador][3]= $row['Descripcion'];
             $info_producto [$contador][4]= $row['Foto'];
             $info_producto [$contador][5]= $row['Cantidad'];
-            $info_producto [$contador][5]= $row['Tipo'];
+            $info_producto [$contador][6]= $row['Tipo'];
             $contador++;
         }
         $res = $this->model->listarProductosReceta($Id);

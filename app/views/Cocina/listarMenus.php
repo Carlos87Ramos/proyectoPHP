@@ -50,9 +50,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            echo '<td>'.$info_menu[$i][3].'</td>';
            echo '<td>' .$info_menu[$i][5].'</td>';
            echo '<td> <a href="'. FOLDER_PATH.'/Cocina/editarMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-pen-to-square"></i></a> </td>';
-           echo '<td> <a href="'. FOLDER_PATH.'/Cocina/deleteMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> </td>';
-           echo '<td> <a href="'. FOLDER_PATH.'/Cocina/addProductosReceta/'.$info_menu[$i][1].'"> <i class="fa-solid fa-plus"></i></a> </td>';
-           echo '</tr>';
+           echo '<td> <a href="'. FOLDER_PATH.'/Cocina/deleteMenu/'.$info_menu[$i][1].'"> <i class="fa-solid fa-trash-can"></i></a> 
+           </td>';
+           echo '<td> <a href="'. FOLDER_PATH.'/Cocina/addProductosReceta/'.$info_menu[$i][1].'"> añadir</a> </td>';
+           echo '</td>';
        }
 
        ?>
@@ -60,7 +61,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
    </div>
   
   
-   <div class="col-3" ><h2>Propaganda</h2></div>
+   <div class="col-3" ><h2></h2></div>
 </body>
 </html>
 

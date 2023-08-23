@@ -47,7 +47,7 @@ class ReporteController extends Controller
         $this->render(__CLASS__,$params);
         }
 
-        public function listarRegistrosActuales($message = '', $message_type= 'success')
+        public function listarRegistrosActuales($filtro,$message = '', $message_type= 'success')
 {
 $result=$this->model->listarRegistrosActuales();
 $contador = 0;
@@ -66,7 +66,20 @@ while ($row = $result->fetch_assoc())
     $contador++;
 }
 
-$params = array('nombre'=>$this->session->get('nombre'),'info_registro' => $info_registro,'show_listarRegistros'=> true,'message_type' => $message_type,'message'=> $message);
+$params = array('nombre'=>$this->session->get('nombre'),'info_registro' => $info_registro,'show_listarRegistros'=> true,'message_type' => $message_type,'message'=> $message, 'filtro'=> $filtro);
+if ($filtro == 'Usuario') {
+    $result = $this->model->listarUsuarios();
+    $contador =0 ;
+    $info_Usuario = [];
+    while($row = $result->fetch_assoc())
+    {
+
+        $info_Usuario [$contador][1]= $row['Cedula'];
+        $info_Usuario [$contador][2]= $row['Nombre'];
+        $contador++;
+    }
+    $params = array('nombre'=>$this->session->get('nombre'),'info_registro' => $info_registro,'show_listarRegistros'=> true,'message_type' => $message_type,'message'=> $message, 'filtro'=> $filtro, 'info_Usuario'=>$info_Usuario);
+}
 $this->render(__CLASS__,$params);
 }
 public function listarRegistrosPorFecha($request_params,$message = '', $message_type= 'success')
@@ -88,9 +101,19 @@ public function listarRegistrosPorFecha($request_params,$message = '', $message_
         $contador++;
     }
     
-    $params = array('nombre'=>$this->session->get('nombre'),'info_registro' => $info_registro,'show_listarRegistros'=> true,'message_type' => $message_type,'message'=> $message , 'fecha_inicial'=>$request_params['fechaInicial'],'fecha_final'=>$request_params['fechaFinal']);
+    $params = array('nombre'=>$this->session->get('nombre'),'info_registro' => $info_registro,'show_listarRegistros'=> true,'message_type' => $message_type,'message'=> $message ,'filtro'=>'Fecha', 'fecha_inicial'=>$request_params['fechaInicial'],'fecha_final'=>$request_params['fechaFinal']);
     $this->render(__CLASS__,$params);
     }
+    public function filtrarPor($request_params)
+{
+        if ($request_params == "Fecha"){
+        
+        $this->listarRegistrosActuales("Fecha");
+        }
+        if ($request_params == "Usuario"){
+            $this->listarRegistrosActuales("Usuario");
+        
+    }
 }
-  
+}
  
