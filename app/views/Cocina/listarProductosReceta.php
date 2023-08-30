@@ -41,7 +41,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <table class="table">
     <?php
 
-for ($i=0; $i <count($info_producto_Receta); $i++) { 
+for ($i=0; $i <count($info_producto_Receta); $i++) {
+    $medida = $info_producto_Receta[$i][6] ==='Kg' ?' kgs ':' Unidades ';
     
     echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/eliminarProductoReceta ">';
     echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
@@ -50,7 +51,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
     echo '<td>'.$info_producto_Receta[$i][1].'</td>';
     echo '<td>'.$info_producto_Receta[$i][2].'</td>';
     echo '<td>'.$info_producto_Receta[$i][3].'</td>';
-    echo '<td> Cantidad : '.$info_producto_Receta[$i][5].'</td>';
+    echo '<td> Cantidad : '.$info_producto_Receta[$i][5]. $medida .'</td>';
     echo '<td><input type="hidden" name = "IdProducto" value="'.$info_producto_Receta[$i][1].'"></td>';
     echo '<td><input type="submit"value ="Eliminar"></td>';
     echo '</tr>';
@@ -70,7 +71,6 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
            <th>Nombre</th>
            <th>Descripcion</th>
            <th>Cantidad</th>
-           <th>añadirProductoReceta</th>
           
           
        </tr>
@@ -80,6 +80,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
        for ($i=0; $i <count($info_producto); $i++) { 
       
         $step = $info_producto[$i][6] === 'Kg' ? 'step="0.1"' : '';
+        $medida = $info_producto[$i][6] ==='Kg' ?'kgs':'Unidades';
            echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/agregarProductoReceta ">';
            echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
            echo'<tr>';
@@ -87,7 +88,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
            echo '<td>'.$info_producto[$i][1].'</td>';
            echo '<td>'.$info_producto[$i][2].'</td>';
            echo '<td>'.$info_producto[$i][3].'</td>';
-           echo '<td><input type="'.$step.'" name="Cantidad" value=""></td>';
+           echo '<td><input type="number" '.$step.'" name="Cantidad" value="" style="width : 50px;">'.$medida.'</td>';
            echo '<td><input type="hidden" name = "IdProducto" value="'.$info_producto[$i][1].'"></td>';
            echo '<td><input type="submit" value="Anadir a la receta"></td>';
            echo '</tr>';
@@ -97,7 +98,6 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
        ?>
    </table>
     </form>
-
 </div>
 </div>
 

@@ -50,7 +50,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        <div class="label" >
        
        <label for="Cantidad">  <?= $info_producto->Tipo ==='Kg'?' Kg': 'Unidades'?></label>
-       <input type="number" name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
+       <input type="number"<?= $info_producto->Tipo ==='Kg'?' step="0.1"': ''?> name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
        
        
        </div>

@@ -6,7 +6,6 @@ require_once LIBS_ROUTE .'Session.php';
 
 class CocinaController extends Controller
 
-
 {
     private $session;
     private $model;
@@ -26,6 +25,7 @@ class CocinaController extends Controller
     {
         $this->listarMenus();
     }
+
     public function listarMenus($message = '', $message_type= 'success')
     {
         $res = $this->model->listarMenus();
@@ -43,6 +43,7 @@ class CocinaController extends Controller
         $params = array('nombre'=>$this->session->get('nombre'),'info_menu' => $info_menu ,'show_listarMenus'=> true,'message_type'=>$message_type,'message'=> $message);
         $this->render(__CLASS__, $params);
     }
+
     public function addMenuForm()
     {
             $params=array('nombre'=>$this->session->get('nombre'),'show_addMenuForm'=> true);
@@ -54,16 +55,13 @@ class CocinaController extends Controller
 
     public function addMenu($request_params)
     {
-
-       
         $result = $this->model->addMenu($request_params);
         if (!$result) {
             return $this->listarMenus("Hubo un error al agregar el Menú", 'warning');
         }
-        $this->listarMenus("  Menú agregado correctamente");
-
-        
+        $this->listarMenus("  Menú agregado correctamente");       
     }
+
     public function listarMenu($Id , $message = '', $message_type= 'success')
     {
        
@@ -80,6 +78,7 @@ class CocinaController extends Controller
            $info_producto_Receta [$contador][3]= $row['Descripcion'];
            $info_producto_Receta [$contador][4]= $row['Foto'];
            $info_producto_Receta [$contador][5]= $row['Cantidad'];
+           $info_producto_Receta [$contador][6]= $row['Tipo'];
            $contador++;
        }
 
@@ -87,7 +86,6 @@ class CocinaController extends Controller
         $this->render(__CLASS__, $params);
 
     }
-
 
     public function editarMenu($Id)
     {
@@ -110,6 +108,7 @@ class CocinaController extends Controller
         $this->listarMenus("Menú eliminado correctamente");
 
     }
+    
     // funcion dar de baja y chekear las cantidades
     public function aplicarMenu($request_params)
     {
@@ -128,6 +127,7 @@ class CocinaController extends Controller
         }
         $this->listarMenu($request_params['Id'],"Error conpruebe las cantidades disponibles ",'warning');
     }
+
     public function updateMenu($request_params)
     {
         $result = $this->model->updateMenu($request_params);
@@ -166,6 +166,7 @@ class CocinaController extends Controller
             $info_producto_Receta [$contador][3]= $row['Descripcion'];
             $info_producto_Receta [$contador][4]= $row['Foto'];
             $info_producto_Receta [$contador][5]= $row['Cantidad'];
+            $info_producto_Receta [$contador][6]= $row['Tipo'];
             $contador++;
         }
 
@@ -235,6 +236,7 @@ class CocinaController extends Controller
             $info_producto [$contador][3]= $row['Descripcion'];
             $info_producto [$contador][4]= $row['Foto'];
             $info_producto [$contador][5]= $row['Cantidad'];
+            $info_producto [$contador][6]= $row['Tipo'];
             $contador++;
         }
       

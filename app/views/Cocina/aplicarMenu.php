@@ -60,6 +60,7 @@
 
     <table class="table">
     <?php for ($i=0; $i <count($info_producto_Receta); $i++) { 
+          $medida = $info_producto_Receta[$i][6] ==='Kg' ?' kgs ':' Unidades ';
 
     echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/editarCantidadProductoReceta ">';
     echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
@@ -68,8 +69,7 @@
     echo '<td>'.$info_producto_Receta[$i][1].'</td>';
     echo '<td>'.$info_producto_Receta[$i][2].'</td>';
     echo '<td>'.$info_producto_Receta[$i][3].'</td>';
-   
-    echo '<td><input type="number"step = "0.1"name ="Cantidad" value="'.$info_producto_Receta[$i][5].'"></td>';
+    echo '<td><input type="number"step = "0.1"name ="Cantidad" style="width:50px;" value="'.$info_producto_Receta[$i][5].'">'.$medida.'</td>';
     echo '<td> <input type="hidden" name = "IdProducto" value="'.$info_producto_Receta[$i][1].'"></td>';
     echo '<td><input type="submit"value ="Editar Cantidad"></td>';
     echo '</tr>';

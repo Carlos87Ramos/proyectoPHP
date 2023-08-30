@@ -37,7 +37,7 @@ function filterProducts() {
       // Crear el elemento img
     const imgElement = document.createElement('img');
     // Configurar el atributo src con la URL de la imagen
-    imgElement.src = '../' + product[4];
+    imgElement.src = '/img/' + product[4];
     imgElement.style.width = '40px';
     // Agregar la imagen al div del producto
     productDiv.appendChild(imgElement);

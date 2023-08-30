@@ -10,6 +10,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movimientos Actuales</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
 
@@ -18,8 +21,21 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <!-- Bootstrap core CSS -->
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
+@media print {
+   @page {
+     margin-left: 0.8in;
+     margin-right: 0.8in;
+     margin-top: 0;
+     margin-bottom: 0;
+   }
+}
+ 
+.texto {
+	text-align: justify;
+  	text-justify: inter-word;
+}
+
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -37,6 +53,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 </head>
+
+<div id ="content">  
 <body class="text-center">
 
 <div class="Conteiner" >
@@ -44,19 +62,21 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
         <div class="col-3" >
         <?php $filtro == 'Fecha' ? require 'app/views/Reporte/filtroFecha.php' :''?>
         <?php $filtro == 'Usuario' ? require 'app/views/Reporte/filtroUsuario.php' :''?>
+        <?php $filtro == 'Tipo' ? require 'app/views/Reporte/filtroTipo.php' :''?>
+        <?php $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :''?>
        
   </div>
        
 
     
-      
-     
+   
         
 <div class="col-6">
  <h3> Movimientos Actuales del Mes</h3> 
+ <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
      <table class="table">
        <tr>
-           <th>Foto</th>
+           <!--th>Foto</th-->
            <th>Nombre Producto</th>
            <th>Cedula</th>
            <th>Nombre Usuario</th>
@@ -71,7 +91,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        for ($i=0; $i <count($info_registro); $i++) { 
            
            echo'<tr>';
-           echo '<td> <img src="/uploads/'.$info_registro[$i][2].'" width="100px" height="100px"></td>';
+          //echo '<td> <img src="/uploads/'.$info_registro[$i][2].'" width="100px" height="100px"></td>';
            echo '<td>'.$info_registro[$i][1].'</td>';
            echo '<td>'.$info_registro[$i][3].'</td>';
            echo '<td>'.$info_registro[$i][4].'</td>';
@@ -85,7 +105,6 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
        ?>
    </table>
-   <button type = " submit"> Imprimir reporte en pdf</button>
    
  </div>
 
@@ -109,6 +128,23 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   </div>
 
   <div class="b-example-divider"></div>
+ 
+  </div> 
+ <script>document.addEventListener("DOMContentLoaded", () => {
+    let boton = document.getElementById("crearpdf");
+    let container = document.getElementById("contenedor");
+ 
+    boton.addEventListener("click", event => {
+        event.preventDefault();
+        boton.style.display = "none";
+        window.print();
+    }, false);
+ 
+    container.addEventListener("click", event => {
+        boton.style.display = "initial";
+    }, false);
+ 
+}, false);</script>
 </body>
 </html>
 

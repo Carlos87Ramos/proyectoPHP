@@ -101,7 +101,7 @@ $sql = "UPDATE Menu SET Nombre='{$nombre}', Descripcion='{$descripcion}' , Obser
     }
     public function listarProductos()
     {
-        $sql = "SELECT * FROM Producto";
+        $sql = "SELECT * FROM Producto order by Nombre asc";
         return $this->db->query($sql);
     }
     public function listarProductosNotInreceta($id_menu)
@@ -115,7 +115,7 @@ $sql = "UPDATE Menu SET Nombre='{$nombre}', Descripcion='{$descripcion}' , Obser
     public function listarProductosReceta($id_menu)
 
     {
-    $sql = "SELECT p.ID,p.Nombre,p.Descripcion,p.Foto,r.Cantidad FROM Producto p , Receta r WHERE Id  In 
+    $sql = "SELECT p.ID,p.Nombre,p.Descripcion,p.Foto, p.Tipo, r.Cantidad FROM Producto p , Receta r WHERE Id  In 
     (SELECT id_Producto FROM Receta WHERE p.ID = Id_Producto and Id_Menu = $id_menu and Id_Menu = r.Id_Menu and Id_producto =r.Id_producto )";
 
      return $this->db->query($sql);
@@ -170,14 +170,23 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
 
       //Buscar registros de stock del producto 
 
-      $sql = "SELECT Id_Poducto FROM Registro  WHERE Id_Producto ={$Id}";
+      $sql = "SELECT Id_Producto FROM Registro  WHERE Id_Producto ={$Id}";
+
       $result = $this->db->query($sql);
 
-      //SI no exixte el producto , elimino el Producto.
+      //Si no exixte el producto , elimino el Producto.
 
-      if (!$result || !$this->db->affected_rows) {
-        $sql = "DELETE FROM Producto WHERE Id = {$Id}";
+      if (!$result || !$this->db->affected_rows)
+      {
+        $sql = "SELECT Id_Producto FROM Receta WHERE Id_Producto = {$Id}";
+        $result = $this->db->query($sql);
+
+        //Si el producto no está en ninguna receta
+        if (!$result || !$this->db->affected_rows)
+        {
+        $sql = "DELETE FROM Producto WHERE Id={$Id}";
         return $this->db->query($sql);
+        }
       }
     }
     public function addCantidadProducto($params)

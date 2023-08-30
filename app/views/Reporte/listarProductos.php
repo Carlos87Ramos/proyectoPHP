@@ -20,7 +20,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
  <h3> Stock actual</h3> 
      <table class="table">
        <tr>
-           <th>Foto</th>
+           <!--th>Foto</th-->
            <th>ID</th>
            <th>Nombre</th>
            <th>Descripcion</th>
@@ -35,7 +35,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        for ($i=0; $i <count($info_producto); $i++) { 
            
            echo'<tr>';
-           echo '<td> <img src="/uploads/'.$info_producto[$i][4].'" width="100px" height="100px"></td>';
+           //echo '<td> <img src="/uploads/'.$info_producto[$i][4].'" width="100px" height="100px"></td>';
            echo '<td>'.$info_producto[$i][1].'</td>';
            echo '<td>'.$info_producto[$i][2].'</td>';
            echo '<td>'.$info_producto[$i][3].'</td>';
@@ -48,58 +48,25 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
        ?>
    </table>
+   <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
  </div>
 
         <div class="col-3"><h2>*Propaganda</h2></div>
-        <?php
-// Incluye la biblioteca TCPDF
-require_once('tcpdf/tcpdf.php');
+        
 
-// Crea una instancia de TCPDF
-$pdf = new TCPDF();
-
-// Establece el título y el autor del documento PDF
-$pdf->SetTitle('Tabla a PDF');
-$pdf->SetAuthor('Tu Nombre');
-
-// Agrega una página
-$pdf->AddPage();
-
-// Define los datos de tu tabla (puedes obtener estos datos de una base de datos)
-$datos = array(
-    array('Nombre', 'Edad', 'Correo'),
-    array('Juan', '25', 'juan@example.com'),
-    array('María', '30', 'maria@example.com'),
-    array('Pedro', '28', 'pedro@example.com'),
-);
-
-// Define el encabezado de la tabla
-$html = '<table border="1"><tr><th>Nombre</th><th>Edad</th><th>Correo</th></tr>';
-
-// Agrega los datos de la tabla al HTML
-foreach ($datos as $fila) {
-    $html .= '<tr>';
-    foreach ($fila as $valor) {
-        $html .= '<td>' . $valor . '</td>';
-    }
-    $html .= '</tr>';
-}
-
-$html .= '</table>';
-
-// Agrega el HTML al PDF
-$pdf->writeHTML($html, true, false, true, false, '');
-
-// Cierra el PDF y lo muestra en el navegador
-$pdf->Output('tabla.pdf', 'I');
-?>
-
-
-
-
+        <script>document.addEventListener("DOMContentLoaded", () => {
+    let boton = document.getElementById("crearpdf");
+    let container = document.getElementById("contenedor");
+ 
+    boton.addEventListener("click", event => {
+        event.preventDefault();
+        boton.style.display = "none";
+        window.print();
+    }, false);
+ 
+    container.addEventListener("click", event => {
+        boton.style.display = "initial";
+    }, false);
+  }, false);</script>
 </body>
 </html>
-
-
-
-
