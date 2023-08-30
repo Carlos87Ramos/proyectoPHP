@@ -1,7 +1,14 @@
 <?php
-defined ('BASEPATH') or exit ('No se permite acceso directo');?>
+defined ('BASEPATH') or exit ('No se permite acceso directo');
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+require_once ROOT . FOLDER_PATH . '/app/views/template/body.php';
+
+$filtro == 'Fecha' ? require 'app/views/Reporte/filtroFecha.php' :'';
+$filtro == 'Usuario' ? require 'app/views/Reporte/filtroUsuario.php' :'';
+$filtro == 'Tipo' ? require 'app/views/Reporte/filtroTipo.php' :'';
+$filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
+
+?>
 
 
 <!DOCTYPE html>
@@ -22,13 +29,37 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <!-- Bootstrap core CSS -->
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+  *{
+    font-family: Numans;
+  }
 @media print {
    @page {
-     margin-left: 0.8in;
-     margin-right: 0.8in;
+     margin-left: 0.1in;
+     margin-right: 0.1in;
      margin-top: 0;
      margin-bottom: 0;
    }
+
+   td.fecha.td{
+    font-size:11px;
+   }
+
+   header, .btn_table{
+    display:none;
+   }
+
+   h3{
+    padding-top:50px;
+   }
+
+   table{
+    margin-top:50px;
+   }
+
+
+
 }
  
 .texto {
@@ -54,97 +85,82 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 </head>
 
-<div id ="content">  
 <body class="text-center">
 
-<div class="Conteiner" >
-      <div class="row" >
-        <div class="col-3" >
-        <?php $filtro == 'Fecha' ? require 'app/views/Reporte/filtroFecha.php' :''?>
-        <?php $filtro == 'Usuario' ? require 'app/views/Reporte/filtroUsuario.php' :''?>
-        <?php $filtro == 'Tipo' ? require 'app/views/Reporte/filtroTipo.php' :''?>
-        <?php $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :''?>
-       
+<div id ="content">  
+  <h3> Movimientos Actuales del Mes</h3> 
+  
+  <div class="row btn_table">
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+    <div class="col-2">
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Filtro por:
+        </a>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Fecha">Fecha</a>
+          <a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Usuario">Usuario</a>
+          <a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Tipo">Tipo</a>
+          <a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Producto">Producto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
+    </div>
   </div>
-       
+</div>
 
-    
-   
-        
-<div class="col-6">
- <h3> Movimientos Actuales del Mes</h3> 
- <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
-     <table class="table">
-       <tr>
-           <!--th>Foto</th-->
-           <th>Nombre Producto</th>
-           <th>Cedula</th>
-           <th>Nombre Usuario</th>
-           <th>Tipo</th>
-           <th>Cantidad</th>
-           <th>Fecha</th>
+  <table class="table">
+      <tr>
+          <!--th>Foto</th-->
+          <th>Nombre Producto</th>
+          <th>Cedula</th>
+          <th>Nombre Usuario</th>
+          <th>Tipo</th>
+          <th>Cantidad</th>
+          <th>Fecha</th>
           
-       </tr>
+      </tr>
 
-       <?php
+      <?php
 
-       for ($i=0; $i <count($info_registro); $i++) { 
-           
-           echo'<tr>';
+      for ($i=0; $i <count($info_registro); $i++) { 
+          
+          echo'<tr>';
           //echo '<td> <img src="/uploads/'.$info_registro[$i][2].'" width="100px" height="100px"></td>';
-           echo '<td>'.$info_registro[$i][1].'</td>';
-           echo '<td>'.$info_registro[$i][3].'</td>';
-           echo '<td>'.$info_registro[$i][4].'</td>';
-           echo '<td>'.$info_registro[$i][5].'</td>';
-           echo '<td>'.$info_registro[$i][6].'</td>';
-           echo '<td>' .$info_registro[$i][7].'</td>';
-           
+          echo '<td>'.$info_registro[$i][1].'</td>';
+          echo '<td>'.$info_registro[$i][3].'</td>';
+          echo '<td>'.$info_registro[$i][4].'</td>';
+          echo '<td>'.$info_registro[$i][5].'</td>';
+          echo '<td>'.$info_registro[$i][6].'</td>';
+          echo '<td class="fecha_td">' .$info_registro[$i][7].'</td>';
+          
           
             echo '</tr>';
-       }
+      }
 
-       ?>
-   </table>
+      ?>
+  </table>
    
- </div>
+</div>
 
-        <div class="col-3">
-        <h3>*Filtro*</h3>
-        <hr color="blue">
-    
-      <div class="dropdown">
-    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-     <!-- <img src="img/fondoSystem.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
-      <strong>Filtrar por:</strong></a>
-    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-      <li><a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Fecha">Fecha</a></li>
-      <li><a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Usuario">Usuario</a></li>
-      <li><a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Tipo">Tipo</a></li>
-      <li><a class="dropdown-item" href="<?=FOLDER_PATH?>/Reporte/filtrarPor/Producto">Producto</a></li>
-      
-    </ul>
-  </div>
-    
-  </div>
-
-  <div class="b-example-divider"></div>
  
-  </div> 
- <script>document.addEventListener("DOMContentLoaded", () => {
-    let boton = document.getElementById("crearpdf");
-    let container = document.getElementById("contenedor");
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let boton = document.getElementById("crearpdf");
+  
+      boton.addEventListener("click", event => {
+          event.preventDefault();
+          window.print();
+      }, false);
  
-    boton.addEventListener("click", event => {
-        event.preventDefault();
-        boton.style.display = "none";
-        window.print();
     }, false);
- 
-    container.addEventListener("click", event => {
-        boton.style.display = "initial";
-    }, false);
- 
-}, false);</script>
+</script>
 </body>
 </html>
 
