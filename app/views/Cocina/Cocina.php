@@ -4,18 +4,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once PATH_HEADER .'header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 
-    <title>Cocina</title>
-   
-</head>
 <body>
+<main>
 <br>
 
 <div>
@@ -34,6 +25,5 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 </div>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
-
+</main>
 </body>
-</html>

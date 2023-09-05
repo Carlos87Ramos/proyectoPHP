@@ -27,6 +27,16 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <style>
 
+/* Estilos para el div centrado */
+.centered-div {
+    width: 30%; /* Ancho del div (puedes ajustarlo según tus necesidades) */
+    margin: 0 auto; /* Margen horizontal automático para centrar horizontalmente */
+   
+    
+    background-color: #f0f0f0; /* Cambia el color de fondo según tus preferencias */
+   
+    text-align: center; /* Alinea el contenido al centro horizontalmente */
+}
 
 
         header
@@ -57,19 +67,33 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     background-color: #f2f2f2;
     color: white;
   }
-  
+   /* Estilos para el encabezado fijo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    padding: 10px; /* Espacio de relleno para el contenido del encabezado */
+    z-index: 100; /* Asegura que el encabezado esté por encima de otros elementos */
+}
+
+/* Añade un margen superior al contenido principal para evitar que se solape con el encabezado */
+main {
+    margin-top: 140px; /* Ajusta la altura según la altura de tu encabezado */
+}
  
     </style>
 </head>
 <body>
 <header>
-    <h2 > Bienvenido al Systema</h2>
+    <h2 > Bienvenido a Dirección</h2>
   
    
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Home">Inicio</a>  </li>
+    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Reporte">Inicio</a>  </li>
     
   <li class="nav-item">
     <a class="nav-link"  href="<?=FOLDER_PATH?>/Reporte/listarProductos"> Listar Productos</a></li>

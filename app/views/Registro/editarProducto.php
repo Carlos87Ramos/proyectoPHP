@@ -8,13 +8,6 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 
 
 
@@ -22,14 +15,15 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 <body class="text-center">
+<main>
     <div class="Conteiner" >
       <div class="row" >
-        <div class="col-4" ><h2> Menu lateral</h2></div>
+        <div class="col-4" ></div>
         
 <div class="col-4">
 <div class="container">
 
-<h2>Alta/Baja Producto</h2>
+<h3>Alta/Baja Producto</h3>
 
 
 
@@ -48,9 +42,14 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        </div>
        
        <div class="label" >
+        <?php
+             
+             $medida = $info_producto->Tipo === 'Kg' ? 'KGs' :
+             ($info_producto->Tipo === 'Litro' ? 'Litros' : 'Unidades');
+        ?>
        
-       <label for="Cantidad">  <?= $info_producto->Tipo ==='Kg'?' Kg': 'Unidades'?></label>
-       <input type="number"<?= $info_producto->Tipo ==='Kg'?' step="0.1"': ''?> name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
+       <label for="Cantidad">  <?= $medida?></label>
+       <input type="number"<?= $info_producto->Tipo !='Unidad'?' step="0.1"': ''?> name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
        
        
        </div>
@@ -78,8 +77,8 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     </div>
     </div>
    
-        <div class="col-3"><h2>Propaganda</h2></div>
-  
+        <div class="col-3"></div>
+        </main>
 </body>
 </html>
 

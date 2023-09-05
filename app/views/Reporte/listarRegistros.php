@@ -46,7 +46,7 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
     font-size:11px;
    }
 
-   header, .btn_table{
+   header, .btn_table,div.centered-div{
     display:none;
    }
 
@@ -86,7 +86,7 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
 </head>
 
 <body class="text-center">
-
+<main>
 <div id ="content">  
   <h3> Movimientos Actuales del Mes</h3> 
   
@@ -133,12 +133,12 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
           
           echo'<tr>';
           //echo '<td> <img src="/uploads/'.$info_registro[$i][2].'" width="100px" height="100px"></td>';
-          echo '<td>'.$info_registro[$i][1].'</td>';
-          echo '<td>'.$info_registro[$i][3].'</td>';
-          echo '<td>'.$info_registro[$i][4].'</td>';
-          echo '<td>'.$info_registro[$i][5].'</td>';
-          echo '<td>'.$info_registro[$i][6].'</td>';
-          echo '<td class="fecha_td">' .$info_registro[$i][7].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][1].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][3].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][4].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][5].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][6].'</td>';
+          echo '<td style="vertical-align: middle;"class="fecha_td">' .$info_registro[$i][7].'</td>';
           
           
             echo '</tr>';
@@ -161,6 +161,7 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
  
     }, false);
 </script>
+</main>
 </body>
 </html>
 

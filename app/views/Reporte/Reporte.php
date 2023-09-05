@@ -15,10 +15,11 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 html,body{
 background-image: url('img/wall1.jpg');
 
-background-repeat: no-repeat;
+
 height: 100%;
 width: 100%;
 font-family: 'Numans', sans-serif;
+
 }
 
 </style>

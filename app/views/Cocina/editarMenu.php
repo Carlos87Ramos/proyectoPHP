@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>editarMenu</title>
-       
 
-        
-</head>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 <body class="text-center">
+<main>
     <div class="Conteiner" >
       <div class="row" >
-        <div class="col-4" ><h2> Menu lateral</h2></div>
-
-
-        <div class="col-4">
-
-
-<div class="container">
-        
-<h2>Editar Menu</h2>
+               
+<h3>Editar Menu</h3>
 
 
 
@@ -61,9 +46,7 @@
     </form>
     </div>
     </div>
-    
-        <div class="col-4"><h2>Propaganda</h2></div>
-</body>
-</html>
+        </main>
+
 
 

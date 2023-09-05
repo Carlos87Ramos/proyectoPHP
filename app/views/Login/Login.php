@@ -15,7 +15,11 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   
 <script src="https://kit.fontawesome.com/0ce3f10c55.js" crossorigin="anonymous"></script> 
 <style>
-  
+  /* Estilos para quitar el subrayado */
+.no-underline {
+    text-decoration: none;
+}
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -70,12 +74,13 @@ width: 50px;
 background-color: #FFC312;
 color: black;
 border:0 !important;
+text-decoration: none;
 }
 
 input:focus{
 outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
-
+text-decoration: none;
 }
 
 .remember{
@@ -92,7 +97,7 @@ margin-right: 5px;
 .login_btn{
 
 color: #FFC312;
-
+text-decoration: none;
 background-color: #FFC312;
 width: 100px;
 }

@@ -112,6 +112,8 @@ margin-right: 5px;
 
 .login_btn{
 
+    text-decoration: none;
+
 color: #FFC312;
 
 background-color: #FFC312;
@@ -119,8 +121,9 @@ width: 100px;
 }
 
 .login_btn:hover{
-color: black;
-background-color: white;
+color: white;
+background-color: #2f8f9f;
+text-decoration: none;
 }
 
 .links{
@@ -148,15 +151,22 @@ margin-left: 4px;
     .aaa{
         align: center;
         color:white;
+        text-decoration: none;
     }
 
     button.icon {
         width: 25px;
         height: 25px;
-        background-color: #f2f2f2;
+        background-color:blue light ;
         color: #FFC312;
+        
+    text-decoration: none;
+
     }
-    
+    /* Estilos para quitar el subrayado */
+.no-underline {
+    text-decoration: none;
+}
 </style>
 </head>
 	

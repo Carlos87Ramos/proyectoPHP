@@ -1,6 +1,8 @@
 
-    <div class="">
-    <label for="">Filtrar por :</label>
+<main>
+<div class="centered-div">
+<h3>Filtrar por </h3>
+<div class="card">
     <form method="post" action="<?= FOLDER_PATH . '/Reporte/listarRegistrosPorProducto' ?>">
         <label for="">Selecione un Producto</label>
         <select name="producto" id="producto">
@@ -20,4 +22,4 @@
     </form>
 </div>
 
-   
+ </main>  

@@ -57,7 +57,21 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     background-color: #f2f2f2;
     color: white;
   }
-  
+   /* Estilos para el encabezado fijo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    padding: 10px; /* Espacio de relleno para el contenido del encabezado */
+    z-index: 100; /* Asegura que el encabezado esté por encima de otros elementos */
+}
+
+/* Añade un margen superior al contenido principal para evitar que se solape con el encabezado */
+main {
+    margin-top: 100px; /* Ajusta la altura según la altura de tu encabezado */
+}
  
     </style>
 </head>
@@ -69,10 +83,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Home">Inicio</a>  </li>
+    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Cocina">Inicio</a>  </li>
     <li class="nav-item">
-    <a class="nav-link"  href="<?=FOLDER_PATH?>/Cocina/listarMenus">Listar Menus</a>  </li>
-    <li class="nav-item">
+    
     <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a></li>
   <li class="nav-item">
     <a class="nav-link"  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Listar Productos</a></li>

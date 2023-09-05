@@ -14,7 +14,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 html,body{
 background-image: url('img/spaghetti.jpg') !important;
-background-repeat: no-repeat;
+background-repeat:repeat-y;
 height: 100%;
 width: 100%;
 text-align: center;

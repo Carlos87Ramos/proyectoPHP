@@ -1,6 +1,10 @@
 
-    <div class="">
-    <label for="">Filtrar por :</label>
+<main>
+
+<div class="centered-div">
+<h3>Filtrar por </h3>
+<div class="card">
+   
     <form method="post" action="<?= FOLDER_PATH . '/Reporte/listarRegistrosPorUsuario' ?>">
         <label for="">Seleccione un Usuario</label>
         <select name="cedula" id="cedula">
@@ -19,5 +23,5 @@
         <button type="submit">Filtrar</button>
     </form>
 </div>
-
+</main>
    

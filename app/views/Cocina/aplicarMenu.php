@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>editarMenu</title>
-  
-       </head>
+
       
        
 <body class="text-center">
+<main>
     <div class="Conteiner" >
       <div class="row" >
-       <div class="col-2" ><h2> Menu lateral</h2></div>
+      
        
 
 
-<div class="col-4">
+<div class="col-12">
 
 <div class="container">
         
@@ -53,14 +47,18 @@
     </div>
     </div>
     
-    <div class="col-6">
+    <div class="col-12">
 
-    <h2>   Receta </h2>
+    <h3> Productos de la Receta </h3>
   
 
     <table class="table">
     <?php for ($i=0; $i <count($info_producto_Receta); $i++) { 
-          $medida = $info_producto_Receta[$i][6] ==='Kg' ?' kgs ':' Unidades ';
+
+        $step = $info_producto_Receta[$i][6] !='Unidad' ? 'step="0.1"' : '';
+        $medida = $info_producto_Receta[$i][6] === 'Kg' ? 'KGs' :
+                  ($info_producto_Receta[$i][6] === 'Litro' ? 'Litros' : 'Unidades');
+
 
     echo'<form method="POST" action="'. FOLDER_PATH .'/Cocina/editarCantidadProductoReceta ">';
     echo'<input type ="hidden"name= "Id"value = "'.$info_menu->ID.'">';  
@@ -69,7 +67,7 @@
     echo '<td>'.$info_producto_Receta[$i][1].'</td>';
     echo '<td>'.$info_producto_Receta[$i][2].'</td>';
     echo '<td>'.$info_producto_Receta[$i][3].'</td>';
-    echo '<td><input type="number"step = "0.1"name ="Cantidad" style="width:50px;" value="'.$info_producto_Receta[$i][5].'">'.$medida.'</td>';
+    echo '<td><input type="number"'.$step.'name ="Cantidad" style="width:50px;" value="'.$info_producto_Receta[$i][5].'">'.$medida.'</td>';
     echo '<td> <input type="hidden" name = "IdProducto" value="'.$info_producto_Receta[$i][1].'"></td>';
     echo '<td><input type="submit"value ="Editar Cantidad"></td>';
     echo '</tr>';
@@ -80,6 +78,7 @@
 </div>
 </div>
 </div>
+</main>
 </body>
 </html>
 

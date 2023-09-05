@@ -1,8 +1,10 @@
 
 
 
-<div class="">
-    <label for="tipo">Filtrar por:</label>
+<main>
+<div class="centered-div">
+<h3>Filtrar por </h3>
+<div class="card">
     <form method="post" action="<?= FOLDER_PATH . '/Reporte/listarRegistrosPorTipo' ?>">
         <label for="tipo">Seleccione un Tipo De Movimiento</label>
         <select name="tipo" id="tipo">
@@ -12,3 +14,4 @@
         <button type="submit">Filtrar</button>
     </form>
 </div>
+</main>

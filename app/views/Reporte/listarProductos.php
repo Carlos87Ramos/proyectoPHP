@@ -4,20 +4,46 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <style>
+
+@media print {
+   @page {
+     margin-left: 0.1in;
+     margin-right: 0.1in;
+     margin-top: 0;
+     margin-bottom: 0;
+   }
+
+   td.fecha.td{
+    font-size:11px;
+   }
+
+   header, .btn_table,div.centered-div{
+    display:none;
+   }
+
+   h3{
+    padding-top:50px;
+   }
+
+   table{
+    margin-top:50px;
+   }
+
+
+
+}
+  </style>
 </head>
 <body class="text-center">
+<main>
 <div class="Conteiner" >
       <div class="row" >
-        <div class="col-3" ><h2> Menu lateral</h2></div>
+        <div class="col-3" ><h2></h2></div>
         
 <div class="col-6">
  <h3> Stock actual</h3> 
+ <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
      <table class="table">
        <tr>
            <!--th>Foto</th-->
@@ -25,8 +51,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            <th>Nombre</th>
            <th>Descripcion</th>
            <th>Cantidad</th>
-           <th>Editar</th>
-           <th>Eliminar</th>
+           
           
        </tr>
 
@@ -36,11 +61,11 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            
            echo'<tr>';
            //echo '<td> <img src="/uploads/'.$info_producto[$i][4].'" width="100px" height="100px"></td>';
-           echo '<td>'.$info_producto[$i][1].'</td>';
-           echo '<td>'.$info_producto[$i][2].'</td>';
-           echo '<td>'.$info_producto[$i][3].'</td>';
+           echo '<td style="vertical-align: middle;">'.$info_producto[$i][1].'</td>';
+           echo '<td style="vertical-align: middle;">'.$info_producto[$i][2].'</td>';
+           echo '<td style="vertical-align: middle;">'.$info_producto[$i][3].'</td>';
            
-           echo '<td>' .$info_producto[$i][5].'</td>';
+           echo '<td style="vertical-align: middle;">' .$info_producto[$i][5].'</td>';
            
           
             echo '</tr>';
@@ -48,25 +73,21 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
        ?>
    </table>
-   <a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
+  
  </div>
 
-        <div class="col-3"><h2>*Propaganda</h2></div>
-        
-
-        <script>document.addEventListener("DOMContentLoaded", () => {
-    let boton = document.getElementById("crearpdf");
-    let container = document.getElementById("contenedor");
+       
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let boton = document.getElementById("crearpdf");
+  
+      boton.addEventListener("click", event => {
+          event.preventDefault();
+          window.print();
+      }, false);
  
-    boton.addEventListener("click", event => {
-        event.preventDefault();
-        boton.style.display = "none";
-        window.print();
     }, false);
- 
-    container.addEventListener("click", event => {
-        boton.style.display = "initial";
-    }, false);
-  }, false);</script>
+</script>
+</main>
 </body>
 </html>

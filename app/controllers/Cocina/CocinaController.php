@@ -218,7 +218,7 @@ class CocinaController extends Controller
        
         $result = $this->model->addProducto($request_params);
         if (!$result) {
-            return $this->listarProductos("Hubo un error al agregar el Producto", 'warning');
+            return $this->listarProductos("Hubo un error al agregar el Producto.Compruebe el formato de la imagen.", 'warning');
         }
         $this->listarProductos("  Producto  agregado correctamente");
 
