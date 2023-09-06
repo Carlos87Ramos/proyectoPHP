@@ -177,10 +177,10 @@ if (!$conexion) {
 <td style="vertical-align: middle;"><?php echo $resultado["Cantidad"]; ?></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Descripcion"]; ?></td>
 
-<td style="vertical-align: middle;"><a href="<?=FOLDER_PATH.'/Cocina/listarProducto/'. $info_producto ["1"]
+<td style="vertical-align: middle;"><a href="<?=FOLDER_PATH.'/Cocina/listarProducto/'. $resultado["ID"]
 ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
 
-<td style="vertical-align: middle;"><a href="<?=  $info_producto["1"]. FOLDER_PATH.'/Cocina/deleteProducto/'
+<td style="vertical-align: middle;"><a href="<?=FOLDER_PATH.'/Cocina/deleteProducto/'.$resultado["ID"]
 ?>"><i class="fa-solid fa-trash-can"></i></a></td>
 
     

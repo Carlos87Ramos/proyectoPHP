@@ -18,13 +18,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     font-size:11px;
    }
 
-   body * {
-   display: none;
+   header, .btn_table,div.centered-div, .esconderPrint, .prin{
+    display:none !important;
    }
-body td {
-  display :table-cell;
-  visibility: visible;
-}
+
 
    h3{
     padding-top:50px;
@@ -89,9 +86,9 @@ if (!$conexion) {
 
 <div class= "col-12" >
 <div class="center mt-5">
-<a type="button" class="btn btn-success mb-3" id="crearpdf">Crear PDF</a>
+    <a type="button" class="btn btn-success mb-3 esconderPrint" id="crearpdf">Crear PDF</a>
     <div class="card pt-3" >
-            <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Stock actual</p>
+            <p class="esconderPrint" style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Stock actual</p>
             
         <div class="container-fluid p-5">
 <table class="table" id="example">

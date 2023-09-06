@@ -10,7 +10,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <br>
 
 <div>
-  <?php !empty($message) ? print( "<div class = \"alert alert-$message_type\">$message</div>"):'' ?> 
+  <?php !empty($message) ? print( "<div id='mensaje_global' class = \"alert alert-$message_type\">$message</div>"):'' ?> 
    
    <?php !empty($show_listarMenus)? require'app/views/Cocina/listarMenus.php' : ''?>
    <?php !empty($show_addMenuForm) ? require'app/views/Cocina/addMenu.php' : '' ?>
@@ -26,4 +26,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>
 </main>
+
+<script>
+  setTimeout(() => {
+    $('#mensaje_global').hide();
+  }, "5000");
+ </script> 
 </body>
