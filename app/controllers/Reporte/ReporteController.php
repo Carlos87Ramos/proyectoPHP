@@ -40,6 +40,7 @@ class ReporteController extends Controller
             $info_producto [$contador][3]= $row['Descripcion'];
             $info_producto [$contador][4]= $row['Foto'];
             $info_producto [$contador][5]= $row['Cantidad'];
+            $info_producto [$contador][6]= $row['Tipo'];
             $contador++;
         }
     
@@ -63,6 +64,7 @@ class ReporteController extends Controller
             $info_registro[$contador][5]= $row['Tipo'];
             $info_registro[$contador][6]= $row['Cantidad'];
             $info_registro[$contador][7]= $row['Fecha'];
+            $info_registro[$contador][8]= $row['TipoProducto'];
             $contador++;
         }
 

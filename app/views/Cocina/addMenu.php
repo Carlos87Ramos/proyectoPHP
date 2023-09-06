@@ -12,12 +12,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
         <div class="col-4" ></div>
         
   <div class="col-4">
-   <h2> Agregar Ménu</h2>
+   
 
     <div class="container">
 
 
-        <h3> Agregar Ménu</h3>
+        <h3> Agregar un nuevo Ménu</h3>
 
     <form method="POST" action="<?=FOLDER_PATH.'/Cocina/addMenu'?>"enctype="multipart/form-data" >
         <div class="label" >
@@ -31,6 +31,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        <div class="label" >
        <label for="Observaciones">Observaciones</label>
        <input type="text" name="Observaciones" id ="Observaciones" >
+       </div>
+       <div class="label" >
+       <label for="CantidadPersonas">Cantidad de Personas Aprox.</label>
+       <input type="number" name="CantidadPersonas" id ="CantidadPersonas"required >
        </div>
        <div class="label" >
        

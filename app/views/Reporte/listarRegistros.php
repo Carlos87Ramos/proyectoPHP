@@ -119,7 +119,7 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
       <tr>
           <!--th>Foto</th-->
           <th>Nombre Producto</th>
-          <th>Cedula</th>
+          <!--<th>Cedula</th>-->
           <th>Nombre Usuario</th>
           <th>Tipo</th>
           <th>Cantidad</th>
@@ -134,10 +134,10 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
           echo'<tr>';
           //echo '<td> <img src="/uploads/'.$info_registro[$i][2].'" width="100px" height="100px"></td>';
           echo '<td style="vertical-align: middle;">'.$info_registro[$i][1].'</td>';
-          echo '<td style="vertical-align: middle;">'.$info_registro[$i][3].'</td>';
+         // echo '<td style="vertical-align: middle;">'.$info_registro[$i][3].'</td>';
           echo '<td style="vertical-align: middle;">'.$info_registro[$i][4].'</td>';
           echo '<td style="vertical-align: middle;">'.$info_registro[$i][5].'</td>';
-          echo '<td style="vertical-align: middle;">'.$info_registro[$i][6].'</td>';
+          echo '<td style="vertical-align: middle;">'.$info_registro[$i][6].' '.$info_registro[$i][8] .($info_registro[$i][8] ==='Unidad' ? 'es': 's').'</td>';
           echo '<td style="vertical-align: middle;"class="fecha_td">' .$info_registro[$i][7].'</td>';
           
           

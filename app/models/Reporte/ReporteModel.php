@@ -10,7 +10,7 @@ class ReporteModel extends Model
   public function listarRegistrosActuales()
   {
 
-    $sql = "SELECT p.Nombre as NombreProducto, Foto, Cedula, u.Nombre as NombreUsuario, r.Tipo, r.Cantidad, Fecha
+    $sql = "SELECT p.Nombre as NombreProducto, Foto, p.Tipo as TipoProducto, Cedula, u.Nombre as NombreUsuario, r.Tipo, r.Cantidad, Fecha
         FROM Producto p, Usuario u, Registro r
         WHERE p.ID = r.Id_Producto
           AND u.Cedula = r.ci_Usuario

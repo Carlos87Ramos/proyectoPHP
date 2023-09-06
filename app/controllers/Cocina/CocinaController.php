@@ -38,6 +38,7 @@ class CocinaController extends Controller
             $info_menu[$contador][3]= $row['Descripcion'];
             $info_menu[$contador][4]= $row['Foto'];
             $info_menu[$contador][5]= $row['Observaciones'];
+            $info_menu[$contador][6]= $row['CantidadPersonas'];
             $contador++;
         }
         $params = array('nombre'=>$this->session->get('nombre'),'info_menu' => $info_menu ,'show_listarMenus'=> true,'message_type'=>$message_type,'message'=> $message);

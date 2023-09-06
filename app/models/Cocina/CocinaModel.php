@@ -25,14 +25,16 @@ class CocinaModel extends Model
         $nombre = $this->db->real_escape_string($params['Nombre']);
         $descripcion = $this->db->real_escape_string($params['Descripcion']);
         $observaciones= $this->db->real_escape_string($params['Observaciones']);
+        $cantidadPersonas = $this->db->real_escape_string($params['CantidadPersonas']);
        
          
       if ($this->addImagen($params['Foto'])) {
 
         $name = $params['Foto']['name'];
-        $sql = "INSERT INTO Menu  (Nombre , Descripcion, Observaciones, Foto)VALUES('$nombre', '$descripcion' , '$observaciones', '$name')";
+        $sql = "INSERT INTO Menu  (Nombre , Descripcion, Observaciones, Foto, CantidadPersonas)VALUES
+        ('$nombre', '$descripcion' , '$observaciones', '$name', '$cantidadPersonas')";
         return $this->db->query($sql);
-        
+       
       }
 
       return null;
@@ -80,6 +82,7 @@ class CocinaModel extends Model
       $nombre = $this->db->real_escape_string($params['Nombre']);
       $descripcion = $this->db->real_escape_string($params['Descripcion']);
       $observaciones= $this->db->real_escape_string($params['Observaciones']);
+      $cantidadPersonas = $this->db->real_escape_string($params['CantidadPersonas']);
        $id = $this->db->real_escape_string($params['Id']);
        
     
@@ -92,7 +95,7 @@ if ($this->addImagen($params['Foto']))
   $name = $this->db->real_escape_string($params['nameFoto']);
   
 }
-$sql = "UPDATE Menu SET Nombre='{$nombre}', Descripcion='{$descripcion}' , Observaciones='{$observaciones}', Foto='{$name}' WHERE Id = '{$id}'";
+$sql = "UPDATE Menu SET Nombre='{$nombre}', Descripcion='{$descripcion}' , Observaciones='{$observaciones}', Foto='{$name}',CantidadPersonas='{$cantidadPersonas}' WHERE Id = '{$id}'";
      
         
       return $this->db->query($sql);

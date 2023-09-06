@@ -49,7 +49,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
         ?>
        
        <label for="Cantidad">  <?= $medida?></label>
-       <input type="number"<?= $info_producto->Tipo !='Unidad'?' step="0.1"': ''?> name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>">
+       <input type="number"<?= $info_producto->Tipo !='Unidad'?' step="0.1"': ''?> name="Cantidad" id="Cantidad" value = "<?= $info_producto->Tipo === 'kg'&& $info_producto->Cantidad ==='0' ? '0.0':$info_producto->Cantidad?>"required>
        
        
        </div>

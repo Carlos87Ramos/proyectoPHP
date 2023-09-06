@@ -38,7 +38,7 @@ class LoginController extends Controller
             }
             $result = $result->fetch_object();
             
-            if ($request_params['password'] === $result->Password)
+            if ($request_params['password'] === $result->Password && $result->Activo)
              {
                 $this->session->init();
                 $this->session->add('cedula', $result->Cedula);
@@ -54,7 +54,7 @@ class LoginController extends Controller
             } else
              {
 
-                return $this->renderErrorMessage("La Contraseña es incorrecta ");
+                return $this->renderErrorMessage(" Contraseña  incorrecta o usuario inválido ");
         
             }
         

@@ -97,16 +97,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     justify-content: center;
   }
 </style>
-<!--<body class="text-center">
-  <main>
-<div class="Conteiner" >
-      <div class="row" >
-        <div class="col-3" ></div>
-        
-<div class="col-12">
-<div class="Conteiner" >
-      <div class="row" >
-<h1>Lista de Productos</h1>-->
+
 <?php
 $host = "localhost";
 $usuario = "root";
@@ -185,9 +176,11 @@ if (!$conexion) {
 <td style="vertical-align: middle;"><?php echo $resultado["Nombre"]; ?></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Cantidad"]; ?></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Descripcion"]; ?></td>
-<td style="vertical-align: middle;"><a href="<?php FOLDER_PATH.'/Cocina/listarProducto/'
+
+<td style="vertical-align: middle;"><a href="<?=FOLDER_PATH.'/Cocina/listarProducto/'. $info_producto ["1"]
 ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-<td style="vertical-align: middle;"><a href="<?php FOLDER_PATH.'/Cocina/deleteProducto/'
+
+<td style="vertical-align: middle;"><a href="<?=  $info_producto["1"]. FOLDER_PATH.'/Cocina/deleteProducto/'
 ?>"><i class="fa-solid fa-trash-can"></i></a></td>
 
     
@@ -251,17 +244,23 @@ if (!$conexion) {
 
 
 
+
+
+
+
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script> -->
 
-
-
-
-
-
-
-
-
+<!--<body class="text-center">
+  <main>
+<div class="Conteiner" >
+      <div class="row" >
+        <div class="col-3" ></div>
+        
+<div class="col-12">
+<div class="Conteiner" >
+      <div class="row" >
+<h1>Lista de Productos</h1>-->
 
 
       <!--  <input type="text" id="searchInput" placeholder="Buscar productos...">

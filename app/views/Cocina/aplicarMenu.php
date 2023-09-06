@@ -41,7 +41,7 @@
        </div>
        <div class="boton" >
         <input type="hidden" name="Id" value="<?= $info_menu->ID ?>">
-        <button type="submit">Aplicar Menu</button>
+        <button type="submit" <?= count($info_producto_Receta)=== 0 ?'disabled': ''?>>Aplicar Menu</button>
         
        </form>
     </div>

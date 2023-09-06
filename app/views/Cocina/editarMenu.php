@@ -3,15 +3,19 @@
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
+
 <body class="text-center">
-<main>
     <div class="Conteiner" >
       <div class="row" >
-               
-<h3>Editar Menu</h3>
+        <div class="col-4" ></div>
+        
+  <div class="col-4">
+   
+
+    <div class="container">
 
 
-
+        <h3> Editar Ménu</h3>
 
 <form method="POST" action="<?= FOLDER_PATH .'/Cocina/updateMenu'?> "enctype="multipart/form-data"  >
         <div class="label" >
@@ -29,8 +33,12 @@
        <label for="Observaciones">Observaciones</label>
        <input type="text" name="Observaciones" id="Observaciones"value = "<?= $info_menu->Observaciones?>">
        </div>
-       <div class="label" >
        
+       <div class="label" >
+       <label for="CantidadPersonas">Cantidad de Personas Aprox.</label>
+       <input type="number" name="CantidadPersonas" id ="CantidadPersonas" value = "<?= $info_menu->Observaciones?>" >
+       </div>
+       <div class="label" >
        <!--label for="foto"> Foto</label-->
        <img src="/uploads/<?=$info_menu-> Foto?>" width="100px" height="100px">
        <input type="file" name="Foto" id="Foto "value = "<?= $info_menu->Foto?> ">
@@ -46,7 +54,8 @@
     </form>
     </div>
     </div>
-        </main>
+    
+    <div class="col-4"></div> 
 
-
+</body>
 

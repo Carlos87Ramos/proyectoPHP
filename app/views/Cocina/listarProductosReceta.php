@@ -94,7 +94,7 @@ for ($i=0; $i <count($info_producto_Receta); $i++) {
            echo '<td style="vertical-align: middle;">'.$info_producto[$i][1].'</td>';
            echo '<td style="vertical-align: middle;">'.$info_producto[$i][2].'</td>';
            echo '<td style="vertical-align: middle;">'.$info_producto[$i][3].'</td>';
-           echo '<td style="vertical-align: middle;"><input type="number" '.$step.'" name="Cantidad" value="" style="width : 50px;">'.$medida.'</td>';
+           echo '<td style="vertical-align: middle;"><input type="number" '.$step.'" name="Cantidad" value="" style="width : 50px;"required>'.$medida.'</td>';
            echo '<td style="vertical-align: middle;"><input type="hidden" name = "IdProducto" value="'.$info_producto[$i][1].'"></td>';
            echo '<td style="vertical-align: middle;"><input type="submit" value="Anadir a la receta"></td>';
            echo '</tr>';
