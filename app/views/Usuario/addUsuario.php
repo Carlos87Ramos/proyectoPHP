@@ -16,19 +16,21 @@
 
 <form method="POST" action="<?= FOLDER_PATH .'/Usuario/addUsuario'?> "enctype="multipart/form-data"  >  
         <div class="label" >
+        <label for="Cedula"> Cedula</label>
+       <input type="text" name="Cedula" id="Cedula" value = "Cedula" > 
+
        <label for="Nombre"> Nombre</label>
-       <input type="text" name="Cedula" id="Cedula" value = "" >
+       <input type="text" name="Nombre" id="Nombre" value = "Nombre" >
        </div>
-       <label for="Cedula"> Cedula</label>
-       <input type="text" name="Nombre" id="Nombre" value = "" >
+      
        
        <div class="form-group">
        <label for="Tipo"> Tipo</label>
        <select name="Tipo" id="Tipo">
         <option value="Cocinero" selected> Cocinero </option>
-        <option value="AyudanteCocina" >AyudanteCocina</option>
+        <option value="Ayudante Cocina" >Ayudante Cocina</option>
         <option value="Coordinador"> Coordinador</option>
-        <option value="Administractivo"> Administractivo</option>
+        <option value="Administrativo"> Administrativo</option>
          <option value="Director"> Director</option>
           </select>  
            </div>
@@ -40,4 +42,4 @@
     </div>
     </div>
     </div>
-   
+  

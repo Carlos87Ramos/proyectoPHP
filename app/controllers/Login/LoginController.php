@@ -43,7 +43,7 @@ class LoginController extends Controller
                 $this->session->init();
                 $this->session->add('cedula', $result->Cedula);
                 $this->session->add('nombre', $result->Nombre);
-                
+                $this->session->add('tipo', $result->Tipo);
                 if ($result->Tipo == 'Cocinero')
          
                 header('location: /proyectoPHP/Cocina');

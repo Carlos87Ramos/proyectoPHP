@@ -28,7 +28,7 @@ return $this->db->query($sql);
 
     $fecha_fin = $this->db->real_escape_string($params['fechaFinal']);
 
-    $sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo,r.Cantidad,Fecha
+    $sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,p.Tipo as TipoProducto,r.Tipo,r.Cantidad,Fecha
             FROM Producto p, Usuario u,Registro r
              WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and date_format(Fecha,\"%Y-%m-%d\")>='{$fecha_inicio} ' and date_format(Fecha,\"%Y-%m-%d\")<= '{$fecha_fin}' order by Fecha desc";
  
@@ -49,7 +49,7 @@ return $this->db->query($sql);
   {
 $cedula = $this->db->real_escape_string($params['cedula']);
 
-$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo,r.Cantidad,Fecha
+$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo ,p.Tipo as TipoProducto,r.Cantidad,Fecha
 FROM Producto p, Usuario u,Registro r
  WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and r.ci_Usuario = '{$cedula}' order by Fecha desc";
 
@@ -61,7 +61,7 @@ return $this->db->query($sql);
   {
 $ID = $this->db->real_escape_string($params['producto']);
 
-$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo,r.Cantidad,Fecha
+$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo ,p.Tipo as TipoProducto,r.Cantidad,Fecha
 FROM Producto p, Usuario u,Registro r
  WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and r.ID_producto = '{$ID}' order by Fecha desc";
 
@@ -72,7 +72,7 @@ return $this->db->query($sql);
   {
 $tipo = $this->db->real_escape_string($params['tipo']);
 
-$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,r.Tipo,r.Cantidad,Fecha
+$sql = "SELECT p.Nombre as NombreProducto,Foto,Cedula,u.Nombre as NombreUsuario,p.Tipo as TipoProducto,r.Tipo,r.Cantidad,Fecha
 FROM Producto p, Usuario u,Registro r
  WHERE p.ID = r.Id_Producto and u.Cedula = r.ci_Usuario and r.Tipo = '{$tipo}' order by Fecha desc";
 

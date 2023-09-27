@@ -15,8 +15,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   <?php !empty($message) ? print( "<div class = \"alert alert-$message_type\">$message</div>"):'' ?> 
    
    <?php !empty($show_addUsuarioForm)? require'app/views/Usuario/addUsuario.php' : ''?>
+   <?php !empty($show_listar_usuario)? require'app/views/Usuario/listarUsuario.php' : ''?>
+   <?php !empty($show_editar_usuario)? require'app/views/Usuario/editarUsuario.php' : ''?>
+   <?php !empty($show_editar_password)? require'app/views/Usuario/cambiarPassword.php' : ''?>
+   
+   
   
- 
 </div>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>

@@ -114,6 +114,7 @@ class ReporteController extends Controller
             $info_registro[$contador][5]= $row['Tipo'];
             $info_registro[$contador][6]= $row['Cantidad'];
             $info_registro[$contador][7]= $row['Fecha'];
+            $info_registro[$contador][8]= $row['TipoProducto'];
             $contador++;
         }
         
@@ -136,6 +137,7 @@ class ReporteController extends Controller
             $info_registro[$contador][5]= $row['Tipo'];
             $info_registro[$contador][6]= $row['Cantidad'];
             $info_registro[$contador][7]= $row['Fecha'];
+            $info_registro[$contador][8]= $row['TipoProducto'];
             $contador++;
         }
         
@@ -158,6 +160,7 @@ class ReporteController extends Controller
             $info_registro[$contador][5]= $row['Tipo'];
             $info_registro[$contador][6]= $row['Cantidad'];
             $info_registro[$contador][7]= $row['Fecha'];
+            $info_registro[$contador][8]= $row['TipoProducto'];
             $contador++;
         }
         // Consulto los Usuarios para completra el combo box
@@ -191,6 +194,8 @@ class ReporteController extends Controller
             $info_registro[$contador][5]= $row['Tipo'];
             $info_registro[$contador][6]= $row['Cantidad'];
             $info_registro[$contador][7]= $row['Fecha'];
+            $info_registro[$contador][8]= $row['TipoProducto'];
+
             $contador++;
         }
         // Consulto los Usuarios para completra el combo box

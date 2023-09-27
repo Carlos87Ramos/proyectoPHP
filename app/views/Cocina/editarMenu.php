@@ -1,7 +1,7 @@
 
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
 
 
 <body class="text-center">

@@ -1,8 +1,6 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
-  
-<!DOCTYPE html>
-<html lang="en">
+ 
 <head>
 
 
@@ -65,8 +63,8 @@ input[type="submit"]:hover {
   background-color: #09200a;
 }
 button[type="submit"] {
-  background-color: white;
-  color: blue;
+  background-color: grey;
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -74,7 +72,7 @@ button[type="submit"] {
   font-size: 14px;
 }
 button[type="submit"]:hover {
-  background-color: #02250a;
+  background-color: #08850a;
 }
 a{
     color:blue;

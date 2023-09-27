@@ -5,7 +5,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
       
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
+
 <body class="text-center">
 
     <div class="Conteiner" >
@@ -51,4 +51,3 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 </body>
 </html>
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/footer.php'?>

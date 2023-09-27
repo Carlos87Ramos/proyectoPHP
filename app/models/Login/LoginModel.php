@@ -17,7 +17,7 @@ class LoginModel extends Model
       {
 
         $cedula = $this->db->real_escape_string($cedula);
-        $sql = "SELECT * from Usuario  WHERE Cedula = '{$cedula}'";
+        $sql = "SELECT Cedula,Nombre, cast(aes_decrypt(Password,'EMT2023') as char) as Password, Activo,Tipo From Usuario  WHERE Cedula = '{$cedula}'";
         return $this->db->query($sql);
         
       }
