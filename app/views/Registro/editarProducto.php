@@ -31,13 +31,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <form method="POST" action="<?= FOLDER_PATH .'/Registro/registroProducto'?> "enctype="multipart/form-data"  >
         <div class="label" >
 
-       <label for="Nombre"> Nombre</label>
+       
        <input type="text" name="Nombre" id="Nombre" value = "<?= $info_producto->Nombre?>" disabled = true >
        
        </div>
-
+<br>
        <div class="label" >
-       <label for="Descripcion"> Descripcion</label>
+       
        <input type="text" name="Descripcion" id="Descripcion" value = "<?= $info_producto->Descripcion?>"disabled= true >
        </div>
        

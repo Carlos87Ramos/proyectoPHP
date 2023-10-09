@@ -2,31 +2,32 @@
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/fondoForm.php'?>
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
 
-<body class="text-center">
-<main>
+
+
 <body class="text-center">
     <div class="Conteiner" >
       <div class="row" >
-      <div class="col-4"></div>            
-      <h2>Editar Producto</h2>
+      <div class="col-4"></div>
+      <div class="col-4">
+     
+      <div class="container">
 
 
-<div class="col-4">
 
 <form method="POST" action="<?= FOLDER_PATH .'/Cocina/updateProducto'?> "enctype="multipart/form-data"  >
-
+      <h3>Editar Producto</h3>
         <div class="label" >
 
-       <label for="Nombre"> Nombre</label>
+     
        <input type="text" name="Nombre" id="Nombre" value = " <?= $info_producto->Nombre?>" >
        
        </div>
-
+<br>
        <div class="label" >
-       <label for="Descripcion"> Descripcion</label>
+      
        <input type="text" name="Descripcion" id="Descripcion" value = "<?= $info_producto->Descripcion?>"  >
        </div>
        
@@ -43,13 +44,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
        <button type="submit">Aceptar</button>
        </div>
+       </div>
+   
 
     </form>
     </div>
     
-  
-        <div class="col-4"></div>
-        </main>
+    <div class="col-4"></div>
+       
+      
 </body>
-
-

@@ -2,9 +2,9 @@
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
-
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/fondoForm.php'?>
       
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+
 
 <body class="text-center">
 
@@ -20,12 +20,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
     <form method="POST" action="<?=FOLDER_PATH.'/Cocina/addProducto'?>"enctype="multipart/form-data" >
 
     <div class="form-group">
-       <label for="Nombre"> Nombre</label>
-       <input type="text" name="Nombre" id ="Nombre" required>
+       
+       <input type="text" name="Nombre" id ="Nombre" placeholder="Escribe el nombre del producto aquí" required>
        </div>
        <div class="form-group">
-       <label for="Descripcion"> Descripcion</label>
-       <input type="text" name="Descripcion" id ="Descripcion" value = "Tipo 1" required>
+       
+       <input type="text" name="Descripcion" id ="Descripcion" placeholder="Escribe la descripcion aqui" required>
        </div>
        <div class="form-group">
        <label for="Tipo"> Tipo</label>

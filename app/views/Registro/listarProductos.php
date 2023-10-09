@@ -5,19 +5,45 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+<style>
+   body {
+            margin: 0;
+            padding: 0;
+          
+        }
+
+        .half {
+          
+            width: 100%;
+            height: 62vh; /* 62% de la altura de la ventana */
+            float: left; /* Para que los divs estén uno al lado del otro */
+            overflow: auto; /* Habilita la barra de desplazamiento cuando sea necesario */
+        }
+        .half{
+            border:3px solid red;
+        }.table-striped
+        {
+            margin: 0;
+            padding-left: 35px;
+        }
+        main{
+ background-color:rgba(50,120,60,0.3) !important ;
+  
+ }
+</style>
 
 
 <body class="text-center">
-<main>
+
     <div class="Conteiner" >
       <div class="row" >
-        <div class="col-3" ><h2> </h2></div>
         
-
-
-<div class="col-6">
-    <H2>*Productos en la Despensa *</H2>
-    <table class="table">
+        
+        <H2>*Productos en la Despensa *</H2>
+        <div class="col-2" ><h2> </h2></div>
+<div class="col-8">
+<H2>*Productos en la Despensa *</H2>
+<table class="table table-striped">
        <tr>
            <th>Foto</th>
            <th>ID</th>
@@ -26,6 +52,10 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
            <th>Cantidad</th>
            <th>Alta/Baja</th>
          </tr>
+         </table>
+<div class="half">
+   
+    <table class="table table-striped">
 
        <?php
 
@@ -49,10 +79,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
        ?>
    </table>
   </div>
-  <div class="col-3" ><h2></h2></div>
-  </main>
+  </div>
+  <div class="col-2" ><h2></h2></div>
+  
 </body>
-</html>
+
+
+
 
 
 

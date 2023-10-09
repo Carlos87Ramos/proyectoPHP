@@ -1,11 +1,21 @@
+<style>
+    .btn-primary{
+    margin:auto
+    
+       
+    }
+</style>
+
 <body class="text-center">        
 
 <div class="Conteiner" >
       <div class="row" >
       
 <h1>Lista de Usuarios</h1>
+<button class="btn btn-primary" style="width: 150px;">  <a class="nav-link " href="<?=FOLDER_PATH?>/Usuario/addUsuarioForm">Agregar Usuario</a></button>
 
-     <table class="table">
+
+     <table class="table table-striped">
        <tr>
            <th>Cedula</th>
            <th>Nombre</th>

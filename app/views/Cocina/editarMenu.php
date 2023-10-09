@@ -1,6 +1,6 @@
 
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/fondoForm.php'?>
 
 
 
@@ -36,7 +36,7 @@
        
        <div class="label" >
        <label for="CantidadPersonas">Cantidad de Personas Aprox.</label>
-       <input type="number" name="CantidadPersonas" id ="CantidadPersonas" value = "<?= $info_menu->Observaciones?>" >
+       <input type="number" name="CantidadPersonas" id ="CantidadPersonas" value = "<?= $info_menu->CantidadPersonas?>" >
        </div>
        <div class="label" >
        <!--label for="foto"> Foto</label-->

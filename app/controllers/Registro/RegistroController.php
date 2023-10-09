@@ -62,6 +62,7 @@ class RegistroController extends Controller
 
     public function registroProducto($request_params)
     {
+      if ($this->modelCocina->chekearStock($request_params)){
   $result = $this->model->addRegistro($request_params , $this->session->get('cedula'));
   if ($result)
   {
@@ -69,6 +70,7 @@ class RegistroController extends Controller
     $result = $this->modelCocina->addCantidadProducto($request_params);
   }
   $this->listarProductos('Stock actualizado con exito');
-
+     } else{ $this->listarProductos('Cantidad insuficiente para dar de baja al stock','warning');
+     }
     }
 }

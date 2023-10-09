@@ -5,6 +5,9 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/headerReporte.php'?>
 
+<?php require_once ROOT . FOLDER_PATH . '/app/views/template/fondoForm.php'?>
+
+
 <body class="text-center">
 
 <body class="text-center">

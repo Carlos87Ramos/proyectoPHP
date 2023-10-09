@@ -39,20 +39,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 
-<?php
-$host = "localhost";
-$usuario = "root";
-$contraseña = "";
-$base_de_datos = "Zanja_Honda";
-?>
-<?php
-$conexion = mysqli_connect($host, $usuario, $contraseña, $base_de_datos);
 
-// Verifica la conexión
-if (!$conexion) {
-    die("La conexión a la base de datos falló: " . mysqli_connect_error());
-}
-?>
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
@@ -91,7 +78,7 @@ if (!$conexion) {
             <p class="esconderPrint" style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Stock actual</p>
             
         <div class="container-fluid p-5">
-<table class="table" id="example">
+<table class="table table-striped" id="example">
 <thead>
 <tr>
 <th scope="col">#</th>
@@ -107,27 +94,27 @@ if (!$conexion) {
 </tr>
 </thead>
 <tbody>
-            <?php $busqueda=mysqli_query($conexion,"SELECT * FROM Producto "); 
-            $numero = mysqli_num_rows($busqueda); ?>
+            <?php  
+            $numero = mysqli_num_rows($busqueda); 
+            ?>
             <h5 class="card-tittle">Resultados (<?php echo $numero; ?>)</h5>
             <div class="container_card">
                 <?php while ($resultado = mysqli_fetch_assoc($busqueda)){
                     if(!empty($num)){ $num = $num++; }else{$num = ''; }
                   $num++;
+         
                   ?>
+
 <tr>
 <th scope="row" style="vertical-align: middle;"><?php echo $num; ?></th>
 <!--<td><img src="/uploads/<?php echo $resultado["Foto"]; ?>" alt="" width="100px"></td>-->
 <td style="vertical-align: middle;"><?php echo $resultado["Nombre"]; ?></td>
-<td style="vertical-align: middle;"><?php echo $resultado["Cantidad"].' '. $resultado["Tipo"]; ?></td>
+<?php
+             $medida = $resultado["Tipo"] === 'Kg' ? 'KGs' :
+             ($resultado["Tipo"] === 'Litro' ? 'Litros' : 'Unidades');
+?>
+<td style="vertical-align: middle;"><?php echo $resultado["Cantidad"].' '.$medida; ?></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Descripcion"]; ?></td>
-
-
-
-    
-</td>
-
-
 
 </tr>    
 
@@ -201,50 +188,4 @@ if (!$conexion) {
 </main>
 </body>
  
-  <div class="prin">
-<body class="text-center">
-<main>
-<div class="Conteiner" >
-      <div class="row" >
-      
-        
-        <div class="col-8">
-
-<table class="table">
-       <tr>
-          <!-- <th>Foto</th-->
-           <th>ID</th>
-           <th>Nombre</th>
-           <th>Descripcion</th>
-           <th>Cantidad</th>
-          
-           
-           
-          
-       </tr>
-
-       <?php
-
-       for ($i=0; $i <count($info_producto); $i++) { 
-           
-           echo'<tr>';
-           //echo '<td> <img src="/uploads/'.$info_producto[$i][4].'" width="100px" height="100px"></td>';
-           echo '<td style="vertical-align: middle;">'.$info_producto[$i][1].'</td>';
-           echo '<td style="vertical-align: middle;">'.$info_producto[$i][2].'</td>';
-           echo '<td style="vertical-align: middle;">'.$info_producto[$i][3].'</td>';
-           
-           echo '<td style="vertical-align: middle;">' .$info_producto[$i][5].' '.$info_producto[$i][6].($info_producto[$i][6] ==='Unidad' ? 'es': 's').'</td>';
-           
-          
-            echo '</tr>';
-       }
-
-       ?>
-   </table>
-  
- </div>
-
-
-
-</div>
-</html>
+ 

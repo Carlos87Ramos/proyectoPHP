@@ -115,7 +115,7 @@ $filtro == 'Producto' ? require 'app/views/Reporte/filtroProducto.php' :'';
   </div>
 </div>
 
-  <table class="table">
+  <table class="table table-striped">
       <tr>
           <!--th>Foto</th-->
           <th>Nombre Producto</th>

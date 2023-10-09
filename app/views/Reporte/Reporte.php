@@ -22,6 +22,12 @@ font-family: 'Numans', sans-serif;
 
 }
 
+  body{
+ background-color:rgba(50,120,60,0.3);
+  
+ }
+
+
 </style>
 </head>
 <?php require_once PATH_HEADER .'headerReporte.php'?>

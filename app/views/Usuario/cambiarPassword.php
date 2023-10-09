@@ -3,11 +3,13 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
 
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/headerReporte.php'?>
+
+
 
 <body class="text-center">
 
 <body class="text-center">
+   <br>
     <div class="Conteiner" >
       <div class="row" >
      
@@ -23,18 +25,18 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
       
        <div class="label" >
-       <label for="OldPassword"> Contraseña anterior</label>
-       <input type="password" name="OldPassword" id="OldPassword" require>
+       
+       <input type="password" name="OldPassword" id="OldPassword"placeholder=" Contraseña anterior aquí" require>
        </div>
 
        <div class="label" >
-        <label for="Password"> Nueva Contraseña</label>
-         <input type="password" name="Password" id="Password"  require>
+        
+         <input type="password" name="Password" id="Password" placeholder="  Nueva Contraseña aquí" require>
        </div>
 
        <div class="label" >
-        <label for="NewPassword">  Reingrese la Nueva Contraseña</label>
-         <input type="password" name="NewPassword" id="NewPassword"  require>
+       
+         <input type="password" name="NewPassword" id="NewPassword" placeholder="  Reingrese la Nueva Contraseña aquí" require>
        </div>
       
        

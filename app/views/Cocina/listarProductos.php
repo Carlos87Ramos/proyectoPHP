@@ -1,9 +1,6 @@
 <?php
 defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 
-<?php require_once ROOT . FOLDER_PATH . '/app/views/template/header.php'?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,20 +95,7 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
   }
 </style>
 
-<?php
-$host = "localhost";
-$usuario = "root";
-$contraseña = "";
-$base_de_datos = "Zanja_Honda";
-?>
-<?php
-$conexion = mysqli_connect($host, $usuario, $contraseña, $base_de_datos);
 
-// Verifica la conexión
-if (!$conexion) {
-    die("La conexión a la base de datos falló: " . mysqli_connect_error());
-}
-?>
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
@@ -139,14 +123,14 @@ if (!$conexion) {
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
 
-
+<button class="btn btn-success" style="width: 250px;">  <a class="nav-link " href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar nuevo Producto</a></button>
 
 <!-- vista C -->
 <div class="center mt-5">
     <div class="card pt-3" >
             <p style="font-weight: bold; color: #0F6BB7; font-size: 22px;">Lista de Productos</p>
         <div class="container-fluid p-5">
-<table class="table" id="example">
+<table class="table table-striped" id="example">
 <thead>
 <tr>
 <th scope="col">#</th>
@@ -162,19 +146,22 @@ if (!$conexion) {
 </tr>
 </thead>
 <tbody>
-            <?php $busqueda=mysqli_query($conexion,"SELECT * FROM Producto "); 
-            $numero = mysqli_num_rows($busqueda); ?>
-            <h5 class="card-tittle">Resultados (<?php echo $numero; ?>)</h5>
-            <div class="container_card">
-                <?php while ($resultado = mysqli_fetch_assoc($busqueda)){
-                    if(!empty($num)){ $num = $num++; }else{$num = ''; }
-                  $num++;
-                  ?>
-<tr>
+<?php 
+$numero = $busqueda->num_rows;?>
+<h5 class="card-tittle">Resultados (<?php echo $numero; ?>)</h5> 
+<div class="container_card">
+    <?php while ($resultado = mysqli_fetch_assoc($busqueda)){
+        if(!empty($num)){ $num = $num++; }else{$num = ''; }
+      $num++;
+      ?>
 <th scope="row" style="vertical-align: middle;"><?php echo $num; ?></th>
 <td><img src="/uploads/<?php echo $resultado["Foto"]; ?>" alt="" width="100px"></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Nombre"]; ?></td>
-<td style="vertical-align: middle;"><?php echo $resultado["Cantidad"]; ?></td>
+<?php
+             $medida = $resultado["Tipo"] === 'Kg' ? 'KGs' :
+             ($resultado["Tipo"] === 'Litro' ? 'Litros' : 'Unidades');
+?>
+<td style="vertical-align: middle;"><?php echo $resultado["Cantidad"].' '.$medida;; ?></td>
 <td style="vertical-align: middle;"><?php echo $resultado["Descripcion"]; ?></td>
 
 <td style="vertical-align: middle;"><a href="<?=FOLDER_PATH.'/Cocina/listarProducto/'. $resultado["ID"]
@@ -241,77 +228,7 @@ if (!$conexion) {
 } );
 
 </script>
-
-
-
-
-
-
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script> -->
-
-<!--<body class="text-center">
-  <main>
-<div class="Conteiner" >
-      <div class="row" >
-        <div class="col-3" ></div>
-        
-<div class="col-12">
-<div class="Conteiner" >
-      <div class="row" >
-<h1>Lista de Productos</h1>-->
-
-
-      <!--  <input type="text" id="searchInput" placeholder="Buscar productos...">
-       <div class="products-container" id="productsContainer"></div>
-</div>
-</div>
- <h3> Lista de Productos</h3> 
-     <table class="table">
-       <tr>
-           <th>Foto</th>
-           <th>ID</th>
-           <th>Nombre</th>
-           <th>Descripcion</th>
-           <th>Cantidad</th>
-           <th>Editar</th>
-           <th>Eliminar</th>
-        
-          
-       </tr>
-
-       <?php
-
-       for ($i=0; $i <count($info_producto); $i++) { 
-        $medida = $info_producto[$i][6] === 'Kg' ? ' KGs ' :
-        ($info_producto[$i][6] === ' Litro ' ? 'Litros' : ' Unidades ');      
-           echo'<tr>';
-           echo '<td> <img src="/uploads/'.$info_producto[$i][4].'" width="100px" height="100px"></td>';
-           echo '<td>'.$info_producto[$i][1].'</td>';
-           echo '<td>'.$info_producto[$i][2].'</td>';
-           echo '<td>'.$info_producto[$i][3].'</td>';
-           
-           echo '<td>' .$info_producto[$i][5]. $medida .'</td>';
-           
-           echo ' <td><a href="'. FOLDER_PATH.'/Cocina/listarProducto/'.$info_producto[$i][1].'"><i class="fa-solid fa-pen-to-square"></i></a> </td>';
-           echo ' <td><a " href="'. FOLDER_PATH.'/Cocina/deleteProducto/'.$info_producto[$i][1].'"> <i class="fa-solid fa-trash-can"></i></t>';
-            echo '</tr>';
-       }
-
-       ?>
-   </table>
- </div>
-
-        <div class="col-3"></div>
-
-
-
-        <script>
-          const products = <?php echo json_encode($info_producto); ?>;
-        </script>
-        <script src="<?php echo FOLDER_PATH;?>/app/views/Cocina/ListarProductos.js"></script>-->
-        </main>
+  </main>
 </body>
 </html>
 

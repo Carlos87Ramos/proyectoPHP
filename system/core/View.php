@@ -23,7 +23,7 @@
 
     }
     else {
-      throw new Exception("Error No exixte $controller_name");
+      throw new Exception("Error No exixte controller_name");
       
     }
     // Retorna el render de una vista.

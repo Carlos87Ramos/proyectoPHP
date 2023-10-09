@@ -1,4 +1,3 @@
-
 <?php 
 defined('BASEPATH') or exit( ' No se permite el acceso directo');
 class CocinaModel extends Model
@@ -239,6 +238,25 @@ $sql = "UPDATE Producto SET Nombre='{$nombre}', Descripcion='{$descripcion}' ,Fo
    
     return $this->db->query($sql);
   }
+  
+
+    public function chekearStock($params){
+    
+
+      $id = $this->db->real_escape_string($params['Id']);
+      $tipo = $this->db->real_escape_string($params['Tipo']);
+      $cantidad = $this->db->real_escape_string($params['Cantidad']);
+if($tipo === "Salida"){
+      $sql = "SELECT Cantidad FROM Producto WHERE Id = $id";
+      $result = $this->db->query($sql);
+      if($result){
+        $info_producto=$result->fetch_object();
+        if($cantidad > $info_producto->Cantidad){
+          return false;
+        }
+      }
+      }return true;
+    }
   public function actualizarCantidades($params)
   {
     $id = $this->db->real_escape_string($params['Id']);

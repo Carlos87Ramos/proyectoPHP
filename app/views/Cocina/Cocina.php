@@ -4,7 +4,12 @@ defined ('BASEPATH') or exit ('No se permite acceso directo');?>
 <?php require_once PATH_HEADER .'header.php'?>
 <?php require_once ROOT . FOLDER_PATH . '/app/views/template/body.php'?>
 
-
+<style>
+   body{
+ background-color:rgba(50,120,60,0.3);
+  
+ }
+</style>
 <body>
 <main>
 <br>

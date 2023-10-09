@@ -79,16 +79,16 @@ main {
 
     <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active"  href="<?=FOLDER_PATH?>/Cocina">Inicio</a>  </li>
+    <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina">Cuaderno de Cocina</a>  </li>
     <li class="nav-item">
     
-    <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a></li>
+    <!--<a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addMenuForm">Agregar Menu</a>--></li>
   <li class="nav-item">
-    <a class="nav-link"  href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Listar Productos</a></li>
+    <a class="nav-link "   href="<?=FOLDER_PATH?>/Cocina/listarProductos"> Listar Productos</a></li>
     <li class="nav-item">
-    <a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a></li>
+    <!--<a class="nav-link "  href="<?=FOLDER_PATH?>/Cocina/addProductoForm">Agregar Productos</a>--></li>
     <li class="nav-item">
-    <a class="nav-link "  href="<?=FOLDER_PATH?>/Registro">Movimientos de Stock</a></li>
+    <a class="nav-link "    href="<?=FOLDER_PATH?>/Registro">Movimientos de Stock</a></li>
   
 
 

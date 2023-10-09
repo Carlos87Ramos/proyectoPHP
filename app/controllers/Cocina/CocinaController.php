@@ -226,24 +226,24 @@ class CocinaController extends Controller
         
     }
     public function listarProductos($message = '', $message_type= 'success')
-    {
-        $res = $this->model->listarProductos();
-        $contador = 0;
-        $info_producto= [];
-        while ($row = $res->fetch_assoc())
-        {
-            $info_producto [$contador][1]= $row['ID'];
-            $info_producto [$contador][2]= $row['Nombre'];
-            $info_producto [$contador][3]= $row['Descripcion'];
-            $info_producto [$contador][4]= $row['Foto'];
-            $info_producto [$contador][5]= $row['Cantidad'];
-            $info_producto [$contador][6]= $row['Tipo'];
-            $contador++;
-        }
-      
-        $params = array('nombre'=>$this->session->get('nombre'),'info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
-        $this->render(__CLASS__,$params);
-    }
+	{
+		$busqueda = $this->model->listarProductos();
+		/*$contador = 0;
+		$info_producto = [];
+		while ($row = $res->fetch_assoc())
+		{
+			$info_producto[$contador][1] = $row['Id'];
+			$info_producto[$contador][2] = $row['Nombre'];
+			$info_producto[$contador][3] = $row['Descripcion'];
+			$info_producto[$contador][4] = $row['Foto'];
+			$info_producto[$contador][5] = $row['Cantidad'];
+			$info_producto[$contador][6] = $row['Tipo'];
+			$contador++;
+		}*/
+		$params = array('nombre'=> $this->session->get('nombre'), 'busqueda' => $busqueda, 'show_listarProductos' => true, 'message_type' => 
+		$message_type, 'message' => $message);
+		$this->render(__CLASS__, $params);
+	}
 
     public function listarProducto($Id)
     {

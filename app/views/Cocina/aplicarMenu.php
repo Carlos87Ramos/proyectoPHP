@@ -1,8 +1,24 @@
 
-      
+  <style>
+     body {
+            margin: 0;
+            padding: 0;
+          
+        }
+
+        .half {
+            width: 98%;
+            height: 50vh; /* 50% de la altura de la ventana */
+            float: left!important; /* Para que los divs estén uno al lado del otro */
+            overflow: auto; /* Habilita la barra de desplazamiento cuando sea necesario */
+        }
+        .half{
+            border:3px solid red;
+        }
+  </style>    
        
 <body class="text-center">
-<main>
+
     <div class="Conteiner" >
       <div class="row" >
       
@@ -51,8 +67,22 @@
 
     <h3> Productos de la Receta </h3>
   
+    <table class="table ta <ble-striped">
+       <tr>
+           <th>Foto</th>
+           <th>ID</th>
+           <th>Nombre</th>
+           <th>Descripcion</th>
+           <th>Cantidad</th>
+           <th>editar</th>
+          
+          
+       </tr>
+       </table>
+      
+    <div class="half" style="background-color: rgb(23, 70, 111);">
 
-    <table class="table">
+    <table class="table table-striped">
     <?php for ($i=0; $i <count($info_producto_Receta); $i++) { 
 
         $step = $info_producto_Receta[$i][6] !='Unidad' ? 'step="0.1"' : '';
@@ -67,7 +97,7 @@
     echo '<td>'.$info_producto_Receta[$i][1].'</td>';
     echo '<td>'.$info_producto_Receta[$i][2].'</td>';
     echo '<td>'.$info_producto_Receta[$i][3].'</td>';
-    echo '<td><input type="number"'.$step.'name ="Cantidad" style="width:50px;" value="'.$info_producto_Receta[$i][5].'">'.$medida.'</td>';
+    echo '<td><input type="number"'.$step.'name ="Cantidad" min="0" style="width:50px;" value="'.$info_producto_Receta[$i][5].'">'.$medida.'</td>';
     echo '<td> <input type="hidden" name = "IdProducto" value="'.$info_producto_Receta[$i][1].'"></td>';
     echo '<td><input type="submit"value ="Editar Cantidad"></td>';
     echo '</tr>';
@@ -78,7 +108,8 @@
 </div>
 </div>
 </div>
-</main>
+</div>
+
 </body>
 </html>
 

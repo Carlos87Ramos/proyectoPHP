@@ -32,7 +32,9 @@ height: 100%;
 width: 100%;
 font-family: 'Numans', sans-serif;
 }
-
+.form-group{
+	margin-top: 20px;
+}
 
 .container{
 height: 100%;
@@ -83,8 +85,7 @@ box-shadow: 0 0 0 0 !important;
 text-decoration: none;
 }
 
-.remember{
-}
+
 
 .remember input
 {
@@ -135,7 +136,7 @@ margin-left: 4px;
   
 
 </head>
-<header> <h1> System MVC</h1> </header>
+<header> <h1> Bienvenido a System MVC  Zanja Honda</h1> </header>
 <body class="text-center">
  
          
@@ -153,22 +154,22 @@ margin-left: 4px;
 				<form>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<span class="input-group-text" style=" height : 38px;"><i class="fas fa-user"></i></span>
 						</div>
 						
             <input type="text" id="cedula" name="cedula"class="form-control" placeholder="Usuario" required autofocus>
 					</div>
 					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style=" height : 38px;"><i class="fas fa-key"></i></span>
 						</div>
             <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
 					</div>
           <?php
             !empty($error_message) ? print($error_message): ''  ?>
-                    <div class="d-flex justify-content-center links">
-						<input type="checkbox">Remember Me
-					</div>
+						<br>
+						
+                   
                     <div class="d-flex justify-content-center links">
 				
 						<input  type="submit" value="Login" value=" Iniciar sesion" color= "white">

@@ -16,11 +16,11 @@
 
 <form method="POST" action="<?= FOLDER_PATH .'/Usuario/addUsuario'?> "enctype="multipart/form-data"  >  
         <div class="label" >
-        <label for="Cedula"> Cedula</label>
-       <input type="text" name="Cedula" id="Cedula" value = "Cedula" > 
+       
+       <input type="text" name="Cedula" id="Cedula" value = "Cedula" placeholder=" Ingrese la cedula aquí"> 
 
-       <label for="Nombre"> Nombre</label>
-       <input type="text" name="Nombre" id="Nombre" value = "Nombre" >
+      
+       <input type="text" name="Nombre" id="Nombre" value = "Nombre" placeholder="Ingrese el nombre aquí">
        </div>
       
        

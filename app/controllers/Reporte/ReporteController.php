@@ -30,8 +30,8 @@ class ReporteController extends Controller
 
     public function listarProductos($message = '', $message_type= 'success')
     {
-        $res = $this->modelCocina->listarProductos();
-        $contador = 0;
+        $busqueda = $this->modelCocina->listarProductos();
+       /* $contador = 0;
         $info_producto= [];
         while ($row = $res->fetch_assoc())
         {
@@ -42,9 +42,9 @@ class ReporteController extends Controller
             $info_producto [$contador][5]= $row['Cantidad'];
             $info_producto [$contador][6]= $row['Tipo'];
             $contador++;
-        }
+        }*/
     
-        $params = array('nombre'=>$this->session->get('nombre'),'info_producto' => $info_producto,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
+        $params = array('nombre'=>$this->session->get('nombre'),'busqueda' => $busqueda,'show_listarProductos'=> true,'message_type' => $message_type,'message'=> $message);
         $this->render(__CLASS__,$params);
     }
 

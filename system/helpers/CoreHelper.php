@@ -15,7 +15,7 @@ class CoreHelper
 
 public static function  validateMethodController($controller,$method)
 {
-    if (! method_exists($controller.$method))
+    if (! method_exists($controller,$method))
         return false;
         return true;
 }

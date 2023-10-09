@@ -102,7 +102,7 @@ main {
     <a class="nav-link "  href="<?=FOLDER_PATH?>/Reporte/listarRegistrosActuales">Movimientos de Stock</a></li>
   
     <li class="nav-item">
-    <a class="nav-link "  href="<?=FOLDER_PATH?>/Usuario/addUsuarioForm">Agregar Usuario</a></li>
+   </li>
     <li class="nav-item">
     <a class="nav-link "  href="<?=FOLDER_PATH?>/Usuario/listarUsuarios">Listas de Usuarios</a></li>
 

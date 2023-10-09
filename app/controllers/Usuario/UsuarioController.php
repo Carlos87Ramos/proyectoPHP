@@ -28,7 +28,7 @@ class UsuarioController extends Controller
     }
     public function addUsuarioForm(){
 
-        $params = array('nombre'=>$this->session->get('nombre'),'show_addUsuarioForm' => true);
+        $params = array('nombre'=>$this->session->get('nombre'),'tipo'=>$this->session->get('tipo'),'show_addUsuarioForm' => true);
         $this->render(__CLASS__, $params);
 
     }
@@ -74,7 +74,7 @@ class UsuarioController extends Controller
 $result= $this->model->listarUsuario($cedula);
 $info_usuario = !$result->num_rows ? $info_usuario= array():$info_usuario = $result->fetch_object();
 
-        $params= array ('nombre'=>$this->session->get('nombre'),'info_usuario'=> $info_usuario, 'show_editar_usuario'=> true);
+        $params= array ('nombre'=>$this->session->get('nombre'),'tipo'=>$this->session->get('tipo'),'info_usuario'=> $info_usuario, 'show_editar_usuario'=> true);
         
   
  
@@ -96,7 +96,7 @@ $info_usuario = !$result->num_rows ? $info_usuario= array():$info_usuario = $res
     {
         
         
-        $params= array ('nombre'=>$this->session->get('nombre'),
+        $params= array ('nombre'=>$this->session->get('nombre'),'tipo'=>$this->session->get('tipo'),
          'show_editar_password'=> true,'message_type'=>$message_type,'message'=> $message);
         
         $this->render(__CLASS__, $params);
